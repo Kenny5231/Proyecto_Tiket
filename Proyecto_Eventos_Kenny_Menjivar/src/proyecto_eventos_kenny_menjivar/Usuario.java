@@ -17,6 +17,7 @@ public class Usuario {
     private String contraseña;
     private int edad;
     private String tipoUsuario;
+    private String eventoscreados;
 
     public Usuario(String nombreCompleto, String username, String contraseña, int edad, String tipoUsuario) {
         this.nombreCompleto = nombreCompleto;
@@ -66,6 +67,14 @@ public class Usuario {
         this.tipoUsuario = tipoUsuario;
     }
 
+    public String getEventoscreados() {
+        return eventoscreados;
+    }
+
+    public void setEventoscreados(String eventoscreados) {
+        this.eventoscreados+= eventoscreados;
+    }
+
     @Override
     public String toString() {
         return "Usuario{" +
@@ -76,5 +85,6 @@ public class Usuario {
                 ", tipoUsuario='" + tipoUsuario + '\'' +
                 '}';
     }
+    
 }
    

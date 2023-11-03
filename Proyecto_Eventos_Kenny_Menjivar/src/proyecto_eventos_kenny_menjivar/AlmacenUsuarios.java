@@ -9,13 +9,14 @@ package proyecto_eventos_kenny_menjivar;
  *
  * @author Kenny
  */
-class pruebouser {
+class AlmacenUsuarios {
     private String nombreCompleto;
     public String username;
     private String contraseña;
     private int edad;
     private String tipoUsuario;
     static ArrayList<Usuario> listaUsuarios = new ArrayList<Usuario>();
+    static ArrayList<Eventos> listaEventos = new ArrayList<Eventos>();
     static String Userloging;
     static String Contraloging;
     static String nameloging;
@@ -34,13 +35,14 @@ class pruebouser {
             usuario.setContraseña(newpassword);
         }
     }
-
+    
+     
     public static String getTipouserloggin() {
         return tipouserloggin;
     }
 
     public static void setTipouserloggin(String tipouserloggin) {
-        pruebouser.tipouserloggin = tipouserloggin;
+        AlmacenUsuarios.tipouserloggin = tipouserloggin;
     }
     
 
@@ -49,7 +51,7 @@ class pruebouser {
     }
 
     public static void setContraloging(String Contraloging) {
-        pruebouser.Contraloging = Contraloging;
+        AlmacenUsuarios.Contraloging = Contraloging;
     }
 
     public static String getNameloging() {
@@ -57,7 +59,7 @@ class pruebouser {
     }
 
     public static void setNameloging(String nameloging) {
-        pruebouser.nameloging = nameloging;
+        AlmacenUsuarios.nameloging = nameloging;
     }
 
     public static int getEdadloggin() {
@@ -65,7 +67,7 @@ class pruebouser {
     }
 
     public static void setEdadloggin(int edadloggin) {
-        pruebouser.edadloggin = edadloggin;
+        AlmacenUsuarios.edadloggin = edadloggin;
     }
     
     public void definologing(String Usserloging){
@@ -109,7 +111,7 @@ class pruebouser {
     
     
     
-    public pruebouser(String nombreCompleto, String username, String contraseña, int edad, String tipoUsuario) {
+    public AlmacenUsuarios(String nombreCompleto, String username, String contraseña, int edad, String tipoUsuario) {
         this.nombreCompleto = nombreCompleto;
         this.username = username;
         this.contraseña = contraseña;
@@ -194,4 +196,32 @@ class pruebouser {
         }
         System.out.println("Usuario no encontrado: " + username);
     }
+    //eventos
+    public void agregarevento(String nombreevento, String fecha, String code, int cantidadper, String descripcion, String tipoevento,double monto,String tipomusica,String tipodeporte,String Userloggin) {
+        listaEventos.add(new Eventos( nombreevento, fecha, code, cantidadper, descripcion, tipoevento, monto, tipomusica, tipodeporte, Userloggin));
+    }
+    public void mostrarlistaeventos() {
+        for (Eventos l : listaEventos) {
+            System.out.println(l + " Yeahhh");
+        }
+    }
+    
+    public String evetoscreadorporplayer(String nombreUsuario) {
+        for (Usuario usuario : listaUsuarios) {
+            if (usuario.getUsername().equals(nombreUsuario)) {
+                return usuario.getEventoscreados();
+            }
+        }
+        return null;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }

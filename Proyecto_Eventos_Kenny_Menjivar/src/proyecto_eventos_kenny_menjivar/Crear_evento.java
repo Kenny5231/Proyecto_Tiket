@@ -5,8 +5,10 @@
 package proyecto_eventos_kenny_menjivar;
 
 import java.awt.BorderLayout;
+import java.text.SimpleDateFormat;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -16,6 +18,7 @@ public class Crear_evento extends javax.swing.JFrame {
     Administrador_eventos event;
     Deportes_panel dp;
     Panel_musical mp;
+    Puente puente;
     /**
      * Creates new form Crear_evento
      */
@@ -48,19 +51,19 @@ public class Crear_evento extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         Codigo = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
+        nombreevent = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         guardar_avance = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        descripcion = new javax.swing.JTextArea();
         Panel = new java.awt.Panel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        cantpersonas = new javax.swing.JTextField();
         Todo_listo = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        Fecha = new com.toedter.calendar.JDateChooser();
+        hora = new javax.swing.JComboBox<>();
+        minuto = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
 
@@ -99,7 +102,7 @@ public class Crear_evento extends javax.swing.JFrame {
         jLabel5.setText("Nombre del evento:");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 150, -1));
         getContentPane().add(Codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 130, -1));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 130, -1));
+        getContentPane().add(nombreevent, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 130, -1));
 
         jLabel6.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         jLabel6.setText("Descripcion del evento:");
@@ -113,9 +116,9 @@ public class Crear_evento extends javax.swing.JFrame {
         });
         getContentPane().add(guardar_avance, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 440, -1, -1));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        descripcion.setColumns(20);
+        descripcion.setRows(5);
+        jScrollPane1.setViewportView(descripcion);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, -1, -1));
 
@@ -135,7 +138,7 @@ public class Crear_evento extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         jLabel1.setText("Cantidad de personas:");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, 160, -1));
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, 140, -1));
+        getContentPane().add(cantpersonas, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, 140, -1));
 
         Todo_listo.setText("Todo listo");
         Todo_listo.addActionListener(new java.awt.event.ActionListener() {
@@ -148,13 +151,13 @@ public class Crear_evento extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         jLabel7.setText("Fecha y hora:");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 70, -1, -1));
-        getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 100, 170, -1));
+        getContentPane().add(Fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 100, 170, -1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "10", "1", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23" }));
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 100, 50, -1));
+        hora.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23" }));
+        getContentPane().add(hora, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 100, 50, -1));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "59" }));
-        getContentPane().add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(722, 100, 70, -1));
+        minuto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "59" }));
+        getContentPane().add(minuto, new org.netbeans.lib.awtextra.AbsoluteConstraints(722, 100, 70, -1));
 
         jLabel8.setText("Hora:");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 70, 40, -1));
@@ -167,12 +170,18 @@ public class Crear_evento extends javax.swing.JFrame {
 
     private void guardar_avanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardar_avanceActionPerformed
         // TODO add your handling code here:
+        String name=" ";
+        String user="";
+        String pasword="";
+        String tipouser="";
+        int Edad=0;
+        puente= new Puente(name, user, pasword, Edad,tipouser);
         if(antes){
         modo=Combo_tipo_de_evento.getSelectedItem().toString();
 //        antes=false;
 System.out.println("porno");
         if(modo.equals("Religioso")){
-            System.out.println("religioso");
+            System.out.println("Religioso");
             
         }else if(modo.equals("Deportivo")){
             System.out.println("Deportivo");
@@ -183,7 +192,6 @@ System.out.println("porno");
             Panel.add(dp,BorderLayout.CENTER);
             Panel.revalidate();
             Panel.repaint(); 
-            
         }else if(modo.equals("Musical")){
             System.out.println("Musical");
             mp = new Panel_musical();
@@ -195,8 +203,42 @@ System.out.println("porno");
             Panel.repaint(); 
         }
         }else{
+        String code= Codigo.getText();
+        String tipoevent = Combo_tipo_de_evento.getSelectedItem().toString();
+        String nombreevento= nombreevent.getText();
+        String Descripcion= descripcion.getText();
+        
+       
+        // Obtener el texto del TextField y convertirlo a un entero
+        int Cantpersonas = Integer.parseInt(cantpersonas.getText());
+        String fechafinal="";
+
+        System.out.println("halooooo: "+Cantpersonas);
+        java.util.Date selectedDate = Fecha.getDate();
+        String fecha;
+        String Hora = hora.getSelectedItem().toString();
+        String Minuto = minuto.getSelectedItem().toString();
+        if (selectedDate != null) {
+         SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd");
+          fecha = f.format(selectedDate) + " " +Hora+" "+Minuto;
+            fechafinal="Fecha: "+f.format(selectedDate)+" Hora: "+Hora+" Minuto: "+Minuto;
+         System.out.println("fecha: " + fecha);
+         } else {
+            fecha="";
+         }
+         double monto=0;
+        //puente.agregarevent();
+        if(!code.equals("") && !tipoevent.equals("") && !nombreevento.equals("") && !Descripcion.equals("") && Cantpersonas!=0 && !fecha.equals("")){
+        puente.agregarevent(nombreevento,fecha,code,Cantpersonas,Descripcion,tipoevent,monto,"tipomusica","tipodeporte","userloggin");
+        JOptionPane.showMessageDialog(null, "Evento creado a la "+fechafinal);
+        puente.mostrarevent();
         event = new Administrador_eventos();    
         event.setVisible(true);
+        this.dispose();
+        }else{
+            JOptionPane.showMessageDialog(null, "No ha llenado todos los datos");
+        }
+        
         
         }
     }//GEN-LAST:event_guardar_avanceActionPerformed
@@ -247,12 +289,13 @@ System.out.println("porno");
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Codigo;
     private javax.swing.JComboBox<String> Combo_tipo_de_evento;
+    private com.toedter.calendar.JDateChooser Fecha;
     private java.awt.Panel Panel;
     private javax.swing.JButton Todo_listo;
+    private javax.swing.JTextField cantpersonas;
+    private javax.swing.JTextArea descripcion;
     private javax.swing.JButton guardar_avance;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private javax.swing.JComboBox<String> hora;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -263,10 +306,9 @@ System.out.println("porno");
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private java.awt.Label label1;
+    private javax.swing.JComboBox<String> minuto;
+    private javax.swing.JTextField nombreevent;
     private java.awt.Panel panel1;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,13 +4,13 @@
  */
 package proyecto_eventos_kenny_menjivar;
 
-import static proyecto_eventos_kenny_menjivar.pruebouser.listaUsuarios;
+import static proyecto_eventos_kenny_menjivar.AlmacenUsuarios.listaUsuarios;
 
 /**
  *
  * @author Kenny
  */
-class Puente extends pruebouser {
+class Puente extends AlmacenUsuarios {
 
     static String name = "ADMIN";
     static String Password = "supersecreto";
@@ -68,7 +68,9 @@ class Puente extends pruebouser {
     public void cambiarinfo(String username, String newUsername, String newNombreCompleto, int newEdad, String newTipoUsuario,String password){
     super.cambiarInformacion(username, newUsername, newNombreCompleto, newEdad, newTipoUsuario,password);
     }
-    
+    public String eventosjugador(String nombreUsuario){
+    return super.evetoscreadorporplayer(nombreUsuario);
+    }
     public void actualizardatos(String username){
         System.out.println("actualizamos");
       super.definologing(username);
@@ -177,4 +179,18 @@ class Puente extends pruebouser {
             usuario.setTipoUsuario(newTipoUsuario);
         }
     }
+    
+    //evetos
+    public void agregarevent(String nombreevento, String fecha, String code, int cantidadper, String descripcion, String tipoevento,double monto,String tipomusica,String tipodeporte,String Userloggin){
+        System.out.println("son: "+nombreevento+ fecha+ code+ cantidadper+ descripcion+ tipoevento+ monto+ tipomusica+ tipodeporte+ Userloggin);
+        super.agregarevento(nombreevento, fecha, code, cantidadper, descripcion, tipoevento, monto, tipomusica, tipodeporte, Userloggin);
+    }
+    public void mostrarevent(){
+    super.mostrarlistaeventos();
+    }
+    
+    
+    
+    
+    
 }

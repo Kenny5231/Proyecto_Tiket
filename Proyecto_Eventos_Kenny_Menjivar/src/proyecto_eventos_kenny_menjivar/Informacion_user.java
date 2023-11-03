@@ -26,8 +26,7 @@ public class Informacion_user extends javax.swing.JFrame {
         puente = new Puente(Username,contra,tipouser,edad,nombrecom);
         Username=puente.getUserloggin();
         contra= puente.getPasswordlogin();
-//        String anos= puente.getEdad().toString();
-//        .getTipouserlogin();    
+        String eventcreados= puente.eventosjugador(Username);
          tipouser= puente.getTipouserlogin();  
          nombrecom= puente.getNamelogin();
        //Edad.setText(edad); 
@@ -35,7 +34,7 @@ public class Informacion_user extends javax.swing.JFrame {
         password.setText(contra); 
         tipo.setText(tipouser); 
         nombre.setText(nombrecom); 
-        
+        Eventoscreados.setText(eventcreados);
     }
 
     /**
@@ -48,7 +47,7 @@ public class Informacion_user extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel2 = new javax.swing.JLabel();
-        textArea1 = new java.awt.TextArea();
+        Eventoscreados = new java.awt.TextArea();
         jLabel3 = new javax.swing.JLabel();
         Back = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
@@ -69,7 +68,7 @@ public class Informacion_user extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
         jLabel2.setText("Perfil del Usuario");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, 240, 50));
-        getContentPane().add(textArea1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 280, 230, 90));
+        getContentPane().add(Eventoscreados, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 280, 230, 90));
 
         jLabel3.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         jLabel3.setText("Eventos creados por el user:");
@@ -152,6 +151,7 @@ public class Informacion_user extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Back;
     private javax.swing.JLabel Edad;
+    private java.awt.TextArea Eventoscreados;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -162,7 +162,6 @@ public class Informacion_user extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel nombre;
     private javax.swing.JLabel password;
-    private java.awt.TextArea textArea1;
     private javax.swing.JLabel tipo;
     private javax.swing.JLabel user;
     // End of variables declaration//GEN-END:variables
