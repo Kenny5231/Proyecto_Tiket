@@ -17,7 +17,7 @@ public class Usuario {
     private String contraseña;
     private int edad;
     private String tipoUsuario;
-    private String eventoscreados;
+    private String eventoscreados="";
 
     public Usuario(String nombreCompleto, String username, String contraseña, int edad, String tipoUsuario) {
         this.nombreCompleto = nombreCompleto;
@@ -64,7 +64,7 @@ public class Usuario {
     }
 
     public void setTipoUsuario(String tipoUsuario) {
-        this.tipoUsuario += tipoUsuario;
+        this.tipoUsuario = tipoUsuario;
     }
 
     public String getEventoscreados() {

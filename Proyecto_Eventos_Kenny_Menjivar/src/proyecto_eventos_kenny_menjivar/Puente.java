@@ -204,11 +204,13 @@ class Puente extends AlmacenUsuarios {
     public void editevent(String nombreevento, String fecha, String code,String newcode, int cantidadper, String descripcion, String tipoevento,double monto,String tipomusica,String tipodeporte,String Userloggin,String equipo1,String equipo2){
         super.editarevento(nombreevento, fecha, code, newcode, cantidadper, descripcion, tipoevento, monto, tipomusica, tipodeporte, Userloggin, equipo1, equipo2);
     }
-    public void agregarplayer(){
-     super.añadirplayes();
+    public void agregarplayer(String code){
+     super.añadirplayes(code);
     }
-    public void agregarmusic(){
-    super.añadirmusicos();
+    public void agregarmusic(String codigo){
+    super.añadirmusicos( codigo);
     }
-    
+    public void agregarinfoevent(String code,String info){
+    super.añadirinfouser(code,info);
+    }
 }

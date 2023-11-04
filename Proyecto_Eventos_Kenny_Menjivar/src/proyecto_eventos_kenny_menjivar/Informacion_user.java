@@ -27,6 +27,7 @@ public class Informacion_user extends javax.swing.JFrame {
         Username=puente.getUserloggin();
         contra= puente.getPasswordlogin();
         String eventcreados= puente.eventosjugador(Username);
+        System.out.println("eventos player: "+eventcreados);
          tipouser= puente.getTipouserlogin();  
          nombrecom= puente.getNamelogin();
        //Edad.setText(edad); 

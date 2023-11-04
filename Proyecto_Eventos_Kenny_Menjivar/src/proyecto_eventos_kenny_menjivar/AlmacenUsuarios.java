@@ -23,6 +23,7 @@ class AlmacenUsuarios {
     static int edadloggin;
     static String tipouserloggin;
     Eventos event;
+    Usuario user;
     
     
     public void cambiarInformacion(String username, String newUsername, String newNombreCompleto, int newEdad, String newTipoUsuario,String newpassword) {
@@ -260,36 +261,71 @@ class AlmacenUsuarios {
             eventos.setTipomusica(tipomusica);
         }
     }
-    public void añadirplayes(){
-        String nombreevento="";
-        String fecha="";
-        String code="";
-        int cantidadper=1;
-        String descripcion="";
-        String tipoevento="";
-        double monto=1;
-        String tipomusica="";
-        String tipodeporte="";
-        String Userloggin="";
-        String equipo1="";
-        String equipo2="";
-        event =new Eventos(nombreevento, fecha, code, cantidadper, descripcion,tipoevento,monto,tipomusica,tipodeporte,Userloggin,equipo1,equipo2);
-        event.AgregarPlayer();
+    public void añadirplayes(String codigo){
+        for (Eventos event : listaEventos) {
+            if (event.getCode().equals(codigo)) {
+                event.AgregarPlayer();
+            }
+        }
+//        String nombreevento="";
+//        String fecha="";
+//        String code="";
+//        int cantidadper=1;
+//        String descripcion="";
+//        String tipoevento="";
+//        double monto=1;
+//        String tipomusica="";
+//        String tipodeporte="";
+//        String Userloggin="";
+//        String equipo1="";
+//        String equipo2="";
+//        event =new Eventos(nombreevento, fecha, code, cantidadper, descripcion,tipoevento,monto,tipomusica,tipodeporte,Userloggin,equipo1,equipo2);
+//        event.AgregarPlayer();
     }
-    public void añadirmusicos(){
-    String nombreevento="";
-        String fecha="";
-        String code="";
-        int cantidadper=1;
-        String descripcion="";
-        String tipoevento="";
-        double monto=1;
-        String tipomusica="";
-        String tipodeporte="";
-        String Userloggin="";
-        String equipo1="";
-        String equipo2="";
-        event =new Eventos(nombreevento, fecha, code, cantidadper, descripcion,tipoevento,monto,tipomusica,tipodeporte,Userloggin,equipo1,equipo2);
-        event.Agregarmusic();
+    public void añadirmusicos(String codigo){
+        for (Eventos event : listaEventos) {
+            if (event.getCode().equals(codigo)) {
+                event.Agregarmusic();
+            }
+        }
+        
+        
+//    String nombreevento="";
+//        String fecha="";
+//        String code="";
+//        int cantidadper=1;
+//        String descripcion="";
+//        String tipoevento="";
+//        double monto=1;
+//        String tipomusica="";
+//        String tipodeporte="";
+//        String Userloggin="";
+//        String equipo1="";
+//        String equipo2="";
+//        event =new Eventos(nombreevento, fecha, code, cantidadper, descripcion,tipoevento,monto,tipomusica,tipodeporte,Userloggin,equipo1,equipo2);
+//        event.Agregarmusic();
+    }
+    public void añadirinfouser(String codigo,String info){
+        for (Usuario usuarios : listaUsuarios) {
+            if (usuarios.getUsername().equals(codigo)) {
+               usuarios.setEventoscreados(info);
+            }
+        }
+        
+//        String name=" ";
+//        String user1="";
+//        String pasword="";
+//        String tipouser="";
+//        int edad=3;
+//        user= new Usuario( user1, name, pasword,edad,tipouser);
+//        user.setEventoscreados(info);
+//        listaEventos
+//        for (Eventos event : listaEventos) {
+//            if (event.getCode().equals(codigo)) {
+//                 event.getCode();
+//            }
+//        }
+//        return null; // Devuelve null si el evento no se encuentra en la lista
+//        S
     }
 }

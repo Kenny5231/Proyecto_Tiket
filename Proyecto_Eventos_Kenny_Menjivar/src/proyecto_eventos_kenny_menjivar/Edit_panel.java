@@ -6,6 +6,7 @@ package proyecto_eventos_kenny_menjivar;
 
 import java.awt.BorderLayout;
 import java.text.SimpleDateFormat;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -206,13 +207,19 @@ Editar_evento edit;
         System.out.println("fecha: "+fecha);
         
         if(evento.equals("Deportivo")){
-        puente.agregarplayer();
+        puente.agregarplayer(code);
         }else if(evento.equals("Musical")){
-        puente.agregarmusic();
+        puente.agregarmusic(code);
         }
-        
+        if(true){
         puente.editevent(name, fechafinal, code, newcode, canpersonas, Descripcion, tipoevento, 0, tipomusic, tipodepo, Userloging, equipo1, equipo2);
         puente.mostrarlistaeventos();
+                    JOptionPane.showMessageDialog(null, "Se han hecho exitosamente los cambios");
+        }else{
+                    JOptionPane.showMessageDialog(null, "No ha hecho los cambios necesarios");
+
+        }
+
     }//GEN-LAST:event_GuardarActionPerformed
 
 

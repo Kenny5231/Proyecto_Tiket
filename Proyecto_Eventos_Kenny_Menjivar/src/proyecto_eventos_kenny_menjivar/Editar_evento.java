@@ -129,6 +129,7 @@ public class Editar_evento extends javax.swing.JFrame {
         // TODO add your handling code here:
         enp= new Administrador_eventos();
         enp.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_RegresarActionPerformed
 
     /**

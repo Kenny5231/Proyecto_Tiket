@@ -24,7 +24,7 @@ public class Crear_evento extends javax.swing.JFrame {
     private JComboBox <String> horasComboBox;
     private JComboBox <String> minutosComboBox;
     public boolean antes=true;
-    public String modo;
+    public String modo="nulo";
     
     
     
@@ -250,13 +250,16 @@ System.out.println("porno");
             
         
         
-        
+        if(!modo.equals("nulo")){
         if(!code.equals("") && !tipoevent.equals("") && !nombreevento.equals("") && !Descripcion.equals("") && Cantpersonas!=0 && !fecha.equals("")){
         
         if(puente.buscarevent(code)==false){
         puente.agregarevent(nombreevento,fecha,code,Cantpersonas,Descripcion,tipoevent,monto,tipomusic,tipojuego,userloging,equipo1,equipo2);
         JOptionPane.showMessageDialog(null, "Evento creado a la "+fechafinal);
         puente.mostrarevent();
+            System.out.println("code: "+code);
+        String info="[Code: "+code+" Fecha: "+fecha+" Tipo de evento: "+tipoevent +" Descripcion: "+Descripcion+"]\n";
+        puente.agregarinfoevent(userloging,info);
         event = new Administrador_eventos();    
         event.setVisible(true);
         this.dispose();
@@ -267,6 +270,9 @@ System.out.println("porno");
             JOptionPane.showMessageDialog(null, "No ha llenado todos los datos");
         }
         
+        }else{
+                    JOptionPane.showMessageDialog(null, "No guardo los cambios");
+        }
         }
     }//GEN-LAST:event_guardar_avanceActionPerformed
 
