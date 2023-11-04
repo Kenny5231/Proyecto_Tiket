@@ -184,7 +184,7 @@ System.out.println("porno");
             
         }else if(modo.equals("Deportivo")){
             System.out.println("Deportivo");
-            dp = new Deportes_panel();
+            dp= new Deportes_panel();
             dp.setSize(300,250);
             dp.setLocation(0,0);
             Panel.removeAll();
@@ -261,7 +261,7 @@ System.out.println("porno");
         event.setVisible(true);
         this.dispose();
         }else{
-            JOptionPane.showMessageDialog(null, "Ya existe un usuario con ese code");
+            JOptionPane.showMessageDialog(null, "Ya existe un usuario con ese codigo");
         }
         }else{
             JOptionPane.showMessageDialog(null, "No ha llenado todos los datos");

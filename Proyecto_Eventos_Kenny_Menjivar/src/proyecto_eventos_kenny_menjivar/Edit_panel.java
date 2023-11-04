@@ -5,18 +5,25 @@
 package proyecto_eventos_kenny_menjivar;
 
 import java.awt.BorderLayout;
+import java.text.SimpleDateFormat;
 
 /**
  *
  * @author Kenny
  */
-public class Edit_panel extends javax.swing.JPanel {
-Deportesedit_panel in;
-Banda_musical mu;
+public class Edit_panel extends javax.swing.JPanel  {
+//Deportesedit_panel in;
+Deportes_panel in;
+//Banda_musical mu;
+Panel_musical mu;
+Puente puente;
+Editar_evento edit;
     /**
      * Creates new form Edit_panel
      */
     public Edit_panel() {
+        in = new Deportes_panel();
+        mu = new Panel_musical();
         initComponents();
     }
 
@@ -46,54 +53,57 @@ Banda_musical mu;
         minuto = new javax.swing.JComboBox<>();
         Pane = new javax.swing.JPanel();
         refrescar = new javax.swing.JButton();
+        Guardar = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        newCode = new javax.swing.JTextField();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         jLabel1.setText("Tipo de Evento:");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 14, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, -1, -1));
 
         tipoevent.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Deportivo", "Religioso", "Musical" }));
-        add(tipoevent, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 39, -1, -1));
+        add(tipoevent, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         jLabel2.setText("Nombre del Evento:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 68, -1, -1));
-        add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 91, 145, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, -1, -1));
+        add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 145, -1));
 
         jLabel3.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         jLabel3.setText("Descripcion del Evento:");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 120, -1, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, -1, -1));
 
         descripcion.setColumns(20);
         descripcion.setRows(5);
         jScrollPane1.setViewportView(descripcion);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 143, -1, -1));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         jLabel4.setText("Cantidad de Personas:");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 240, 162, -1));
-        add(cantpersonas, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 263, 148, -1));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 162, -1));
+        add(cantpersonas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 148, -1));
 
         jLabel7.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         jLabel7.setText("Fecha y hora:");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 298, -1, -1));
-        add(calendar, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 321, 170, -1));
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, -1, -1));
+        add(calendar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, 170, -1));
 
         jLabel8.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         jLabel8.setText("Hora:");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(188, 298, 52, -1));
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 310, 52, -1));
 
         hora.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "10", "1", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23" }));
-        add(hora, new org.netbeans.lib.awtextra.AbsoluteConstraints(188, 321, 50, -1));
+        add(hora, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 330, 50, -1));
 
         jLabel9.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         jLabel9.setText("Minuto:");
-        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(271, 298, -1, -1));
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 310, -1, -1));
 
         minuto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "59" }));
-        add(minuto, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 321, 70, -1));
+        add(minuto, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 330, 70, -1));
 
         javax.swing.GroupLayout PaneLayout = new javax.swing.GroupLayout(Pane);
         Pane.setLayout(PaneLayout);
@@ -106,7 +116,7 @@ Banda_musical mu;
             .addGap(0, 230, Short.MAX_VALUE)
         );
 
-        add(Pane, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 160, -1, -1));
+        add(Pane, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 60, 350, -1));
 
         refrescar.setText("Refrescar");
         refrescar.addActionListener(new java.awt.event.ActionListener() {
@@ -115,14 +125,31 @@ Banda_musical mu;
             }
         });
         add(refrescar, new org.netbeans.lib.awtextra.AbsoluteConstraints(634, 6, -1, 17));
+
+        Guardar.setText("Guardar");
+        Guardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GuardarActionPerformed(evt);
+            }
+        });
+        add(Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 330, -1, -1));
+
+        jLabel5.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        jLabel5.setText("Nuevo Codigo");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
+        add(newCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 140, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void refrescarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refrescarActionPerformed
         // TODO add your handling code here:
         //Deportivo, Religioso, Musical
         String evento=tipoevent.getSelectedItem().toString();
+        
+
+        
         if(evento.equals("Deportivo")){
-        in = new Deportesedit_panel();
+            
+            //in = new Deportesedit_panel();
             in.setSize(300,250);
             in.setLocation(0,0);
             Pane.removeAll();
@@ -130,7 +157,7 @@ Banda_musical mu;
             Pane.revalidate();
             Pane.repaint(); 
         }else if(evento.equals("Musical")){
-        mu = new Banda_musical();
+        
             mu.setSize(300,250);
             mu.setLocation(0,0);
             Pane.removeAll();
@@ -140,8 +167,57 @@ Banda_musical mu;
         }
     }//GEN-LAST:event_refrescarActionPerformed
 
+    private void GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarActionPerformed
+        // TODO add your handling code here:
+        String nombre1=" ";
+        String user="";
+        String pasword="";
+        String tipouser="";
+        int Edad=0;
+        puente= new Puente(nombre1, user, pasword, Edad,tipouser);
+        edit =new Editar_evento();
+        String name = nombre.getText();
+        String newcode=newCode.getText();
+        String Descripcion= descripcion.getText();
+        String evento=tipoevent.getSelectedItem().toString();
+        int canpersonas = Integer.parseInt(cantpersonas.getText()); 
+        String code= edit.getCode();
+        String tipoevento= tipoevent.getSelectedItem().toString();
+        String Userloging= puente.getNamelogin();
+        String equipo1= in.getEquipo1();
+        String equipo2= in.getEquipo2();
+        String tipomusic= mu.getTipomusica();
+        String tipodepo= in.getTipodeporte();
+        
+        
+        String fechafinal="";
+        java.util.Date selectedDate = calendar.getDate();
+        String fecha;
+        String Hora = hora.getSelectedItem().toString();
+        String Minuto = minuto.getSelectedItem().toString();
+        if (selectedDate != null) {
+         SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd");
+          fecha = f.format(selectedDate) + " " +Hora+" "+Minuto;
+            fechafinal="Fecha: "+f.format(selectedDate)+" Hora: "+Hora+" Minuto: "+Minuto;
+         System.out.println("fecha: " + fecha);
+         } else {
+            fecha="";
+         }
+        System.out.println("fecha: "+fecha);
+        
+        if(evento.equals("Deportivo")){
+        puente.agregarplayer();
+        }else if(evento.equals("Musical")){
+        puente.agregarmusic();
+        }
+        
+        puente.editevent(name, fechafinal, code, newcode, canpersonas, Descripcion, tipoevento, 0, tipomusic, tipodepo, Userloging, equipo1, equipo2);
+        puente.mostrarlistaeventos();
+    }//GEN-LAST:event_GuardarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Guardar;
     private javax.swing.JPanel Pane;
     private com.toedter.calendar.JDateChooser calendar;
     private javax.swing.JTextField cantpersonas;
@@ -151,11 +227,13 @@ Banda_musical mu;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JComboBox<String> minuto;
+    private javax.swing.JTextField newCode;
     private javax.swing.JTextField nombre;
     private javax.swing.JButton refrescar;
     private javax.swing.JComboBox<String> tipoevent;

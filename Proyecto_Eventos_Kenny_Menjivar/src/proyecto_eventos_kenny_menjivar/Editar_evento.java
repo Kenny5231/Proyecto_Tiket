@@ -5,6 +5,7 @@
 package proyecto_eventos_kenny_menjivar;
 
 import java.awt.BorderLayout;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -13,6 +14,8 @@ import java.awt.BorderLayout;
 public class Editar_evento extends javax.swing.JFrame {
     Administrador_eventos enp;
     Edit_panel fn;
+    Puente puente;
+    private static String code;
     /**
      * Creates new form Editar_evento
      */
@@ -20,6 +23,14 @@ public class Editar_evento extends javax.swing.JFrame {
         initComponents();
     }
 
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -31,11 +42,10 @@ public class Editar_evento extends javax.swing.JFrame {
 
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        code = new javax.swing.JTextField();
+        Code = new javax.swing.JTextField();
         Panel_unico = new java.awt.Panel();
         Regresar = new javax.swing.JButton();
         Buscar = new javax.swing.JButton();
-        Save = new javax.swing.JButton();
         Guardar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -48,7 +58,7 @@ public class Editar_evento extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         jLabel3.setText("Ingrese el codigo del evento:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 220, 20));
-        getContentPane().add(code, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 140, -1));
+        getContentPane().add(Code, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 140, -1));
 
         javax.swing.GroupLayout Panel_unicoLayout = new javax.swing.GroupLayout(Panel_unico);
         Panel_unico.setLayout(Panel_unicoLayout);
@@ -77,31 +87,41 @@ public class Editar_evento extends javax.swing.JFrame {
                 BuscarActionPerformed(evt);
             }
         });
-        getContentPane().add(Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 470, -1, -1));
-
-        Save.setText("Guardar");
-        Save.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SaveActionPerformed(evt);
-            }
-        });
-        getContentPane().add(Save, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 470, -1, -1));
+        getContentPane().add(Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 470, -1, -1));
         getContentPane().add(Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+//fn.setSize(740,360);
+//            fn.setLocation(0,0);
+//            Panel_unico.removeAll();
+//            Panel_unico.add(fn,BorderLayout.CENTER);
+//            Panel_unico.revalidate();
+//            Panel_unico.repaint(); 
+//            this.dispose();
+//            System.out.println("llegue al ");
     private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
         // TODO add your handling code here:
+        String name=" ";
+        String user="";
+        String pasword="";
+        String tipouser="";
+        int Edad=0;
+        puente= new Puente(name, user, pasword, Edad,tipouser);
+         this.code=Code.getText();
+        if(puente.buscarevent(this.code)){
         fn = new Edit_panel();
             fn.setSize(740,360);
             fn.setLocation(0,0);
             Panel_unico.removeAll();
             Panel_unico.add(fn,BorderLayout.CENTER);
             Panel_unico.revalidate();
-            Panel_unico.repaint(); 
-        
-        
+            Panel_unico.repaint();
+            
+        }else{
+                    JOptionPane.showMessageDialog(null, "No existe un usuario con ese codigo");
+
+        }
         
     }//GEN-LAST:event_BuscarActionPerformed
 
@@ -110,17 +130,6 @@ public class Editar_evento extends javax.swing.JFrame {
         enp= new Administrador_eventos();
         enp.setVisible(true);
     }//GEN-LAST:event_RegresarActionPerformed
-
-    private void SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveActionPerformed
-        // TODO add your handling code here:
-        enp= new Administrador_eventos();
-        enp.setVisible(true);
-        
-        
-        
-        
-        
-    }//GEN-LAST:event_SaveActionPerformed
 
     /**
      * @param args the command line arguments
@@ -159,11 +168,10 @@ public class Editar_evento extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Buscar;
+    private javax.swing.JTextField Code;
     private javax.swing.JLabel Guardar;
     private java.awt.Panel Panel_unico;
     private javax.swing.JButton Regresar;
-    private javax.swing.JButton Save;
-    private javax.swing.JTextField code;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables

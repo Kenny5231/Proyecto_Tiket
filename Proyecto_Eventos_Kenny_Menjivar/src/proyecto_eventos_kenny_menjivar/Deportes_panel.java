@@ -12,6 +12,7 @@ public class Deportes_panel extends javax.swing.JPanel {
     private String tipodeporte;
     private String equipo1;
     private String equipo2;
+    
     public String getTipodeporte() {
         return tipodeporte;
     }

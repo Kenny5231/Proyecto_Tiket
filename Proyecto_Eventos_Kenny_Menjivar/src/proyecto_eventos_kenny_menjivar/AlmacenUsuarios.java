@@ -22,7 +22,7 @@ class AlmacenUsuarios {
     static String nameloging;
     static int edadloggin;
     static String tipouserloggin;
-
+    Eventos event;
     
     
     public void cambiarInformacion(String username, String newUsername, String newNombreCompleto, int newEdad, String newTipoUsuario,String newpassword) {
@@ -240,23 +240,56 @@ class AlmacenUsuarios {
         }
         System.out.println("Usuario no encontrado: " + code);
     }
-//    public void cambiarInformacion(String username, String newUsername, String newNombreCompleto, int newEdad, String newTipoUsuario,String newpassword) {
-//        Usuario usuario = buscarUsuarioPorUsername(listaUsuarios, username);
-//        if (usuario != null) {
-//            usuario.setUsername(newUsername);
-//            usuario.setNombreCompleto(newNombreCompleto);
-//            usuario.setEdad(newEdad);
-//            usuario.setTipoUsuario(newTipoUsuario);
-//            usuario.setContraseña(newpassword);
-//        }
-//    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    public Eventos buscarEventoPorcode(ArrayList<Eventos> listaEventos, String codeBuscado) {
+        for (Eventos event : listaEventos) {
+            if (event.getCode().equals(codeBuscado)) {
+                return event; // Se encontró un usuario con el username buscado
+            }
+        }
+        return null; // No se encontró un usuario con el username buscado
+    }
+    public void editarevento(String nombreevento, String fecha, String code,String newcode, int cantidadper, String descripcion, String tipoevento,double monto,String tipomusica,String tipodeporte,String Userloggin,String equipo1,String equipo2) {
+        Eventos eventos = buscarEventoPorcode(listaEventos,code);
+        if (eventos != null) {
+            eventos.setCode(newcode);
+            eventos.setCantpersonas(cantidadper);
+            eventos.setDescripcion(descripcion);
+            eventos.setFechaevento(fecha);
+            eventos.setTipevento(tipoevento);
+            eventos.setTipodeporte(tipodeporte);
+            eventos.setTipomusica(tipomusica);
+        }
+    }
+    public void añadirplayes(){
+        String nombreevento="";
+        String fecha="";
+        String code="";
+        int cantidadper=1;
+        String descripcion="";
+        String tipoevento="";
+        double monto=1;
+        String tipomusica="";
+        String tipodeporte="";
+        String Userloggin="";
+        String equipo1="";
+        String equipo2="";
+        event =new Eventos(nombreevento, fecha, code, cantidadper, descripcion,tipoevento,monto,tipomusica,tipodeporte,Userloggin,equipo1,equipo2);
+        event.AgregarPlayer();
+    }
+    public void añadirmusicos(){
+    String nombreevento="";
+        String fecha="";
+        String code="";
+        int cantidadper=1;
+        String descripcion="";
+        String tipoevento="";
+        double monto=1;
+        String tipomusica="";
+        String tipodeporte="";
+        String Userloggin="";
+        String equipo1="";
+        String equipo2="";
+        event =new Eventos(nombreevento, fecha, code, cantidadper, descripcion,tipoevento,monto,tipomusica,tipodeporte,Userloggin,equipo1,equipo2);
+        event.Agregarmusic();
+    }
 }

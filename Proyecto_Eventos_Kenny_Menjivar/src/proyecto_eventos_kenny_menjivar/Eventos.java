@@ -5,6 +5,8 @@
 package proyecto_eventos_kenny_menjivar;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import static proyecto_eventos_kenny_menjivar.AlmacenUsuarios.listaUsuarios;
 
 /**
  *
@@ -41,6 +43,58 @@ public class Eventos {
     this.equipo1=equipo1;
     this.equipo2=equipo2;
     }
+    
+    public void Agregarmusic(){
+     String Smusicoscan = JOptionPane.showInputDialog("Ingrese la cantidad de personas que conforman el equipo:");
+     int musicoscan=Integer.parseInt(Smusicoscan);  
+        for(int i=0;i<musicoscan;i++){
+                String musico = JOptionPane.showInputDialog("Ingrese el nombre del musico numero: "+i);
+                String Intrumento = JOptionPane.showInputDialog("Ingrese el nombre del Intrumento numero: "+i);
+            musical.add(new Musical(musico,Intrumento));
+        }
+        for (Musical a : musical) {
+            System.out.println(a.toString() + " miembro");
+        }
+    }
+    
+    public void AgregarPlayer(){
+    String Sjugadores1 = JOptionPane.showInputDialog("Ingrese la cantidad de jugadores del Equipo 1");
+    String Sjugadores2 = JOptionPane.showInputDialog("Ingrese la cantidad de jugadores del Equipo 2");
+    int jugadores1=Integer.parseInt(Sjugadores1);
+    int jugadores2=Integer.parseInt(Sjugadores2);
+    boolean mostrar1=true;
+    boolean mostrar2=true;
+    //para agregar el primero
+    for(int i=0;i<jugadores1;i++){
+        if(mostrar1){
+    JOptionPane.showMessageDialog(null, "Ingrese el nombre de los jugadores del primer equipo");
+        mostrar1=false;
+        }    
+    String jugador = JOptionPane.showInputDialog("Ingrese el nombre de jugardor numero: "+i);
+    equi1.add(new Equipo1(jugador));
+    }
+    //para agregar el segundo equipo
+    for(int i=0;i<jugadores2;i++){
+        if(mostrar2){
+             JOptionPane.showMessageDialog(null, "Ingrese el nombre de los jugadores del segundo equipo");    
+            mostrar2=false;
+          }
+    String jugador2 = JOptionPane.showInputDialog("Ingrese el nombre de jugardor numero: "+i);
+    equi2.add(new Equipo2(jugador2));
+    }
+    
+        System.out.println("Se han agregado todos los jugadores");
+        System.out.println("Primer equipo: ");
+        for (Equipo1 a : equi1) {
+            System.out.println(a.toString() + " jugador1");
+        }
+        System.out.println("Segundo equipo: ");
+        for (Equipo2 e : equi2) {
+            System.out.println(e.toString() + " jugador2");
+        }
+        
+    }
+    
     public String getNombre() {
         return nombre;
     }

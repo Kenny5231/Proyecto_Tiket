@@ -76,6 +76,10 @@ public class Iniciar_Sesion extends javax.swing.JFrame {
 
     private void iniciar_sesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iniciar_sesionActionPerformed
         // TODO add your handling code here:
+        
+        
+        
+        //
 String username = Usuario.getText(); // Utiliza nombres de variables descriptivos
 String password = Contra.getText();
 String name = "haajkl"; // ¿Por qué estás declarando esta variable si no la usas?
