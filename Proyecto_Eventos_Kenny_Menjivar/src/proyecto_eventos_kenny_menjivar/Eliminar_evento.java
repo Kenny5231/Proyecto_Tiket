@@ -4,12 +4,15 @@
  */
 package proyecto_eventos_kenny_menjivar;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Kenny
  */
 public class Eliminar_evento extends javax.swing.JFrame {
     Administrador_eventos event;
+    Puente puente;
     /**
      * Creates new form Eliminar_evento
      */
@@ -29,7 +32,8 @@ public class Eliminar_evento extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        back = new javax.swing.JButton();
+        code = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -49,7 +53,15 @@ public class Eliminar_evento extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 410, -1, -1));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 180, -1));
+
+        back.setText("Regresar");
+        back.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backActionPerformed(evt);
+            }
+        });
+        getContentPane().add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, -1, -1));
+        getContentPane().add(code, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 180, -1));
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 500));
 
         pack();
@@ -57,9 +69,33 @@ public class Eliminar_evento extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        String username ="name";
+        String password ="pasword";
+        String name = "haajkl"; 
+        String fullName = "vß∆ghv"; 
+        int age = 87;
+        String userType = "Admin";
+        puente = new Puente(username, password, name, age, userType);
+        
+        
+        String codigo=code.getText();
+        if(puente.buscarevent(codigo)){
+        puente.eliminarEvent(codigo);
+            JOptionPane.showMessageDialog(null, "Se ha elimano el Evento con el codigo: "+codigo);
         event = new Administrador_eventos();
         event.setVisible(true);
+        this.dispose();
+        }else{
+                    JOptionPane.showMessageDialog(null, "Ha ingresado un codigo inexistente");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
+        // TODO add your handling code here:
+        event = new Administrador_eventos();
+        event.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_backActionPerformed
 
     /**
      * @param args the command line arguments
@@ -97,10 +133,11 @@ public class Eliminar_evento extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton back;
+    private javax.swing.JTextField code;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

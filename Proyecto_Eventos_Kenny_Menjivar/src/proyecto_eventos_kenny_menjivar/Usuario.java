@@ -64,7 +64,7 @@ public class Usuario {
     }
 
     public void setTipoUsuario(String tipoUsuario) {
-        this.tipoUsuario = tipoUsuario;
+        this.tipoUsuario += tipoUsuario;
     }
 
     public String getEventoscreados() {

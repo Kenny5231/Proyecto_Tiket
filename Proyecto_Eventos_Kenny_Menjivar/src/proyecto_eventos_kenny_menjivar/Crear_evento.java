@@ -7,7 +7,6 @@ package proyecto_eventos_kenny_menjivar;
 import java.awt.BorderLayout;
 import java.text.SimpleDateFormat;
 import javax.swing.JComboBox;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 /**
@@ -243,7 +242,18 @@ System.out.println("porno");
                 
          double monto=0;
         //puente.agregarevent();
+        //if(modo.equals("Deportivo")||modo.equals("Musical")&& !equipo1.equals("Ninguno")&& !equipo2.equals("Ninguno")&& !tipojuego.equals("Ninguno")||!tipomusic.equals("Ninguno")){
+            
+        
+        
+        
+            
+        
+        
+        
         if(!code.equals("") && !tipoevent.equals("") && !nombreevento.equals("") && !Descripcion.equals("") && Cantpersonas!=0 && !fecha.equals("")){
+        
+        if(puente.buscarevent(code)==false){
         puente.agregarevent(nombreevento,fecha,code,Cantpersonas,Descripcion,tipoevent,monto,tipomusic,tipojuego,userloging,equipo1,equipo2);
         JOptionPane.showMessageDialog(null, "Evento creado a la "+fechafinal);
         puente.mostrarevent();
@@ -251,9 +261,11 @@ System.out.println("porno");
         event.setVisible(true);
         this.dispose();
         }else{
+            JOptionPane.showMessageDialog(null, "Ya existe un usuario con ese code");
+        }
+        }else{
             JOptionPane.showMessageDialog(null, "No ha llenado todos los datos");
         }
-        
         
         }
     }//GEN-LAST:event_guardar_avanceActionPerformed

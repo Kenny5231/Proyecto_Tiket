@@ -4,6 +4,7 @@
  */
 package proyecto_eventos_kenny_menjivar;
 
+import java.util.ArrayList;
 import static proyecto_eventos_kenny_menjivar.AlmacenUsuarios.listaUsuarios;
 
 /**
@@ -188,8 +189,18 @@ class Puente extends AlmacenUsuarios {
     public void mostrarevent(){
     super.mostrarlistaeventos();
     }
-    
-    
+    public boolean buscarevent(String code){
+    if (super.buscarevento(listaEventos,code) != null) {
+            return true;
+        }
+        return false;
+    }
+    public void eliminarevent(String code){
+    super.eliminarEvent(code);
+    }
+    public String mostrarinfoevent(String code){
+    return super.mostrarinfoeventos(code);
+    }
     
     
     

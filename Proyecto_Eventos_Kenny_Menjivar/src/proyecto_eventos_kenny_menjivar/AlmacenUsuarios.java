@@ -205,7 +205,15 @@ class AlmacenUsuarios {
             System.out.println(l + " Yeahhh");
         }
     }
-    
+    public String mostrarinfoeventos(String code) {
+        for (Eventos l : listaEventos) {
+            if(l.getCode().equals(code)){
+            System.out.println(l);
+            return l.toString();
+            }
+        }
+        return null;
+    }
     public String evetoscreadorporplayer(String nombreUsuario) {
         for (Usuario usuario : listaUsuarios) {
             if (usuario.getUsername().equals(nombreUsuario)) {
@@ -213,6 +221,24 @@ class AlmacenUsuarios {
             }
         }
         return null;
+    }
+    public String buscarevento(ArrayList<Eventos>listaEventos,String codigo){
+     for (Eventos event : listaEventos) {
+            if (event.getCode().equals(codigo)) {
+                return event.getCode();
+            }
+        }
+        return null; // Devuelve null si el evento no se encuentra en la lista
+    }
+    public  void eliminarEvent(String code) {
+        for (Eventos event : listaEventos) {
+            if (event.getCode().equals(code)) {
+                listaEventos.remove(event);
+                System.out.println("Codigo eliminado: " + code);
+                return;
+            }
+        }
+        System.out.println("Usuario no encontrado: " + code);
     }
 //    public void cambiarInformacion(String username, String newUsername, String newNombreCompleto, int newEdad, String newTipoUsuario,String newpassword) {
 //        Usuario usuario = buscarUsuarioPorUsername(listaUsuarios, username);

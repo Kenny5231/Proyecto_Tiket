@@ -130,17 +130,20 @@ public class Eventos {
     }
     @Override
     public String toString() {
-        return "Usuario{" +
-                "Username='" + nombre + '\'' +
-                ", codigo='" + code + '\'' +
-                ", fecha evento='" + fechaevento + '\'' +
-                ", descripcion=" + Descripcion +
-                ", cantidad personas='" + cantpersonas + '\'' +
-                ", Usuario que lo creo: "+Usercreate+'\''+
-                ",tipo de evento:'" + tipevento + '\'' +
-                ",tipo de deporte:'" + tipodeporte + '\'' +
-                ",tipo de musica:'" + tipomusica + '\'' +
-                '}';
+        String info= "Usuario{\n" +
+        "Username='"+nombre+"',\n" +
+        "codigo='"+code+"',\n" +
+        "fecha evento='"+fechaevento+"',\n" +
+        "descripcion='"+Descripcion+"',\n" +
+        "cantidad personas='"+cantpersonas+"',\n" +
+        "Usuario que lo creo='"+Usercreate+"',\n" +
+        "tipo de evento='"+tipevento+"',\n";
+        if(tipevento.equals("Musical")){
+            info+= "tipo de musica='"+tipomusica+"}";
+        }else if (tipevento.equals("Deportivo")){
+            info+="tipo de deporte='"+tipodeporte+"}";
+        }
+        return info;
     }
 
 //    public static ArrayList<Musical> getMusical() {

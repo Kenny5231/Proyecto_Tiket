@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
  * @author Kenny
  */
 public class Iniciar_Sesion extends javax.swing.JFrame {
-
+    private boolean unavez=true;
     /**
      * Creates new form Inicio_Sesion
      */
@@ -78,7 +78,6 @@ public class Iniciar_Sesion extends javax.swing.JFrame {
         // TODO add your handling code here:
 String username = Usuario.getText(); // Utiliza nombres de variables descriptivos
 String password = Contra.getText();
-boolean unavez=true;
 String name = "haajkl"; // ¿Por qué estás declarando esta variable si no la usas?
 String fullName = "vß∆ghv"; // Cambia el nombre de la variable
 int age = 87;
@@ -90,6 +89,8 @@ Puente puente = new Puente(username, password, name, age, userType);
 String storedPassword = puente.contraUser(username); // Almacena la contraseña encontrada
 if(username.equals("admin") && password.equals("supersecreto") && unavez){
 unavez =false;  
+
+
 puente.crearUser("Administrador", username, password, 00, "Administrador");
 puente.setUserloggin(username);
     puente.actualizardatos(username);
@@ -162,3 +163,18 @@ puente.setUserloggin(username);
     private javax.swing.JLabel jLabel4;
     // End of variables declaration//GEN-END:variables
 }
+//15/08/2005==menor
+//if(evetos.getfecha!=menor){
+//14/08/2008
+//14/08/2007
+//14/08/2009
+//14/08/2010
+//
+//public void dias(menor){
+//
+//}
+//
+//
+//
+//SOUT
+//String dias+=menor

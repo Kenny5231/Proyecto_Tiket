@@ -4,12 +4,15 @@
  */
 package proyecto_eventos_kenny_menjivar;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Kenny
  */
 public class Ver_evento extends javax.swing.JFrame {
     Administrador_eventos event;
+    Puente puente;
     /**
      * Creates new form Ver_evento
      */
@@ -55,6 +58,11 @@ public class Ver_evento extends javax.swing.JFrame {
         getContentPane().add(codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 170, -1));
 
         Buscar.setText("Buscar");
+        Buscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscarActionPerformed(evt);
+            }
+        });
         getContentPane().add(Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 440, -1, -1));
 
         Regresar.setText("Regresar");
@@ -89,6 +97,29 @@ public class Ver_evento extends javax.swing.JFrame {
        event.setVisible(true);
        this.dispose();
     }//GEN-LAST:event_RegresarActionPerformed
+
+    private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
+        // TODO add your handling code here:
+        String username ="name";
+        String password ="pasword";
+        String name = "haajkl"; 
+        String fullName = "vß∆ghv"; 
+        int age = 87;
+        String userType = "Admin";
+        puente = new Puente(username, password, name, age, userType);
+        String code=codigo.getText();
+        if(puente.buscarevent(code)){
+        String info= puente.mostrarinfoevent(code);
+            System.out.println("La info: "+info);
+        Informacion.setText(info);
+        }else{
+                            JOptionPane.showMessageDialog(null, "Ha ingresado un codigo inexistente");
+        }
+        
+        
+        
+        
+    }//GEN-LAST:event_BuscarActionPerformed
 
     /**
      * @param args the command line arguments
