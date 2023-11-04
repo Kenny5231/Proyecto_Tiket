@@ -226,10 +226,25 @@ System.out.println("porno");
          } else {
             fecha="";
          }
+        String tipomusic="Ninguno";
+        String tipojuego="Ninguno";
+        String equipo1="Ninguno";
+        String equipo2="Ninguno";
+        String userloging=puente.getUserloggin();
+        if(modo.equals("Musical")){
+         tipomusic=mp.getTipomusica();
+           System.out.println("tipo de musica: "+tipomusic);
+        }else if(modo.equals("Deportivo")){
+        tipojuego=dp.getTipodeporte();
+            System.out.println("tipo de deporte: "+tipojuego);
+        equipo1=dp.getEquipo1();
+        equipo2=dp.getEquipo2();
+        }
+                
          double monto=0;
         //puente.agregarevent();
         if(!code.equals("") && !tipoevent.equals("") && !nombreevento.equals("") && !Descripcion.equals("") && Cantpersonas!=0 && !fecha.equals("")){
-        puente.agregarevent(nombreevento,fecha,code,Cantpersonas,Descripcion,tipoevent,monto,"tipomusica","tipodeporte","userloggin");
+        puente.agregarevent(nombreevento,fecha,code,Cantpersonas,Descripcion,tipoevent,monto,tipomusic,tipojuego,userloging,equipo1,equipo2);
         JOptionPane.showMessageDialog(null, "Evento creado a la "+fechafinal);
         puente.mostrarevent();
         event = new Administrador_eventos();    

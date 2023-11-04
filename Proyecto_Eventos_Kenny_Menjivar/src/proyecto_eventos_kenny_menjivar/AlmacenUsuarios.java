@@ -197,8 +197,8 @@ class AlmacenUsuarios {
         System.out.println("Usuario no encontrado: " + username);
     }
     //eventos
-    public void agregarevento(String nombreevento, String fecha, String code, int cantidadper, String descripcion, String tipoevento,double monto,String tipomusica,String tipodeporte,String Userloggin) {
-        listaEventos.add(new Eventos( nombreevento, fecha, code, cantidadper, descripcion, tipoevento, monto, tipomusica, tipodeporte, Userloggin));
+    public void agregarevento(String nombreevento, String fecha, String code, int cantidadper, String descripcion, String tipoevento,double monto,String tipomusica,String tipodeporte,String Userloggin,String equipo1,String equipo2) {
+        listaEventos.add(new Eventos( nombreevento, fecha, code, cantidadper, descripcion, tipoevento, monto, tipomusica, tipodeporte, Userloggin,equipo1,equipo2));
     }
     public void mostrarlistaeventos() {
         for (Eventos l : listaEventos) {
@@ -214,7 +214,16 @@ class AlmacenUsuarios {
         }
         return null;
     }
-    
+//    public void cambiarInformacion(String username, String newUsername, String newNombreCompleto, int newEdad, String newTipoUsuario,String newpassword) {
+//        Usuario usuario = buscarUsuarioPorUsername(listaUsuarios, username);
+//        if (usuario != null) {
+//            usuario.setUsername(newUsername);
+//            usuario.setNombreCompleto(newNombreCompleto);
+//            usuario.setEdad(newEdad);
+//            usuario.setTipoUsuario(newTipoUsuario);
+//            usuario.setContraseña(newpassword);
+//        }
+//    }
     
     
     

@@ -21,10 +21,12 @@ public class Eventos {
     private int cantpersonas;
     private String tipodeporte;
     private String tipomusica;
-//    static ArrayList<Equipo1> equi1 = new ArrayList<Equipo1>();
-//    static ArrayList<Equipo2> equi2 = new ArrayList<Equipo2>();
-//    static ArrayList<Musical> musical = new ArrayList<Musical>();
-    public Eventos(String nombreevento, String fecha, String code, int cantidadper, String descripcion, String tipoevento,double monto,String tipomusica,String tipodeporte,String Userloggin){
+    private String equipo1;
+    private String equipo2;
+    static ArrayList<Equipo1> equi1 = new ArrayList<Equipo1>();
+    static ArrayList<Equipo2> equi2 = new ArrayList<Equipo2>();
+    static ArrayList<Musical> musical = new ArrayList<Musical>();
+    public Eventos(String nombreevento, String fecha, String code, int cantidadper, String descripcion, String tipoevento,double monto,String tipomusica,String tipodeporte,String Userloggin,String equipo1,String equipo2){
         System.out.println("Llegamos a crear");
     this.nombre= nombreevento;
     this.fechaevento= fecha;
@@ -36,6 +38,8 @@ public class Eventos {
     this.tipodeporte=tipodeporte;
     this.tipomusica=tipomusica;
     this.Usercreate=Userloggin;
+    this.equipo1=equipo1;
+    this.equipo2=equipo2;
     }
     public String getNombre() {
         return nombre;
@@ -133,6 +137,9 @@ public class Eventos {
                 ", descripcion=" + Descripcion +
                 ", cantidad personas='" + cantpersonas + '\'' +
                 ", Usuario que lo creo: "+Usercreate+'\''+
+                ",tipo de evento:'" + tipevento + '\'' +
+                ",tipo de deporte:'" + tipodeporte + '\'' +
+                ",tipo de musica:'" + tipomusica + '\'' +
                 '}';
     }
 

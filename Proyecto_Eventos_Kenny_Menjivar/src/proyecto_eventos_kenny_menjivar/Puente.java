@@ -181,9 +181,9 @@ class Puente extends AlmacenUsuarios {
     }
     
     //evetos
-    public void agregarevent(String nombreevento, String fecha, String code, int cantidadper, String descripcion, String tipoevento,double monto,String tipomusica,String tipodeporte,String Userloggin){
+    public void agregarevent(String nombreevento, String fecha, String code, int cantidadper, String descripcion, String tipoevento,double monto,String tipomusica,String tipodeporte,String Userloggin,String equipo1,String equipo2){
         System.out.println("son: "+nombreevento+ fecha+ code+ cantidadper+ descripcion+ tipoevento+ monto+ tipomusica+ tipodeporte+ Userloggin);
-        super.agregarevento(nombreevento, fecha, code, cantidadper, descripcion, tipoevento, monto, tipomusica, tipodeporte, Userloggin);
+        super.agregarevento(nombreevento, fecha, code, cantidadper, descripcion, tipoevento, monto, tipomusica, tipodeporte, Userloggin,equipo1,equipo2);
     }
     public void mostrarevent(){
     super.mostrarlistaeventos();
