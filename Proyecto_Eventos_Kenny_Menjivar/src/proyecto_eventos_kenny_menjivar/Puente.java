@@ -69,9 +69,14 @@ class Puente extends AlmacenUsuarios {
     public void cambiarinfo(String username, String newUsername, String newNombreCompleto, int newEdad, String newTipoUsuario,String password){
     super.cambiarInformacion(username, newUsername, newNombreCompleto, newEdad, newTipoUsuario,password);
     }
-    public String eventosjugador(String nombreUsuario){
-    return super.evetoscreadorporplayer(nombreUsuario);
+//    public String eventosjugador(String nombreUsuario){
+//    return super.evetoscreadorporplayer(nombreUsuario);
+//    }
+    public String informacion(String user){
+    String info=super.eventosCreadosPorUsuario(user);
+    return info;
     }
+    
     public void actualizardatos(String username){
         System.out.println("actualizamos");
       super.definologing(username);
@@ -210,7 +215,15 @@ class Puente extends AlmacenUsuarios {
     public void agregarmusic(String codigo){
     super.añadirmusicos( codigo);
     }
-    public void agregarinfoevent(String code,String info){
-    super.añadirinfouser(code,info);
+    public void agregarinfoevent(String code,String Userloging){
+    super.añadirinfouser(code,Userloging);
     }
+    public String intent(String codigo){
+    return super.usu(codigo);
+    }
+    public String eventpasados(){
+    return super.pasados();
+    }
+    
+    
 }

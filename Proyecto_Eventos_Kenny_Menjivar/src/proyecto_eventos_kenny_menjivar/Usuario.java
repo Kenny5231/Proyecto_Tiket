@@ -5,6 +5,7 @@
 package proyecto_eventos_kenny_menjivar;
 
 import java.util.ArrayList;
+import static proyecto_eventos_kenny_menjivar.AlmacenUsuarios.listaUsuarios;
 //import static proyecto_eventos_kenny_menjivar.Controladordeusuarios.listaUsuarios;
 
 /**
@@ -17,8 +18,35 @@ public class Usuario {
     private String contraseña;
     private int edad;
     private String tipoUsuario;
-    private String eventoscreados="";
+    private ArrayList<Creados> listaeventoscreadosuser = new ArrayList<>();
+    private String[] arreglo = new String[150];
 
+    public void agregarevet(String code) {
+        System.out.println("Se creo");
+        System.out.println("EL CODIGO QUE LLEGA ES: " + code);
+        listaeventoscreadosuser.add(new Creados(code));
+        for (Creados l : listaeventoscreadosuser) {
+            System.out.println(l.toString() + " fuap-creo");
+        }
+    }
+
+    public String[] eventocreados() {
+        for (Creados l : listaeventoscreadosuser) {
+            System.out.println(l.toString() + " pinga");
+        }
+
+        int tamaño = listaeventoscreadosuser.size();
+        arreglo = new String[tamaño];
+
+        for (int i = 0; i < tamaño; i++) {
+            Creados event = listaeventoscreadosuser.get(i);
+            arreglo[i] = event.toString();
+            System.out.println(arreglo[i] + " pinga");
+        }
+        return arreglo;
+    }
+    
+    
     public Usuario(String nombreCompleto, String username, String contraseña, int edad, String tipoUsuario) {
         this.nombreCompleto = nombreCompleto;
         this.username = username;
@@ -30,7 +58,6 @@ public class Usuario {
     public String getNombreCompleto() {
         return nombreCompleto;
     }
-
     public void setNombreCompleto(String nombreCompleto) {
         this.nombreCompleto = nombreCompleto;
     }
@@ -67,14 +94,18 @@ public class Usuario {
         this.tipoUsuario = tipoUsuario;
     }
 
-    public String getEventoscreados() {
-        return eventoscreados;
-    }
-
-    public void setEventoscreados(String eventoscreados) {
-        this.eventoscreados+= eventoscreados;
-    }
-
+//    public String getEventoscreados() {
+//        return eventoscreados;
+//    }
+//
+//    public void setEventoscreados(String eventoscreados) {
+//        this.eventoscreados+= eventoscreados;
+//    }
+    
+    
+   
+    
+    
     @Override
     public String toString() {
         return "Usuario{" +

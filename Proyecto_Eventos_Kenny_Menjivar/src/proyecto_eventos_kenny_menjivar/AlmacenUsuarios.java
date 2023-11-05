@@ -10,6 +10,7 @@ package proyecto_eventos_kenny_menjivar;
  * @author Kenny
  */
 class AlmacenUsuarios {
+    private String Informacioneventuser="";
     private String nombreCompleto;
     public String username;
     private String contraseña;
@@ -24,6 +25,10 @@ class AlmacenUsuarios {
     static String tipouserloggin;
     Eventos event;
     Usuario user;
+    Eventos_Alma info;
+    
+    
+    
     
     
     public void cambiarInformacion(String username, String newUsername, String newNombreCompleto, int newEdad, String newTipoUsuario,String newpassword) {
@@ -215,13 +220,17 @@ class AlmacenUsuarios {
         }
         return null;
     }
-    public String evetoscreadorporplayer(String nombreUsuario) {
-        for (Usuario usuario : listaUsuarios) {
-            if (usuario.getUsername().equals(nombreUsuario)) {
-                return usuario.getEventoscreados();
-            }
-        }
-        return null;
+
+    public String getInformacioneventuser() {
+        return Informacioneventuser;
+    }
+
+    public void setInformacioneventuser(String Informacioneventuser) {
+        this.Informacioneventuser += Informacioneventuser;
+    }
+    
+    public String eventosCreadosPorUsuario(String nombreUsuario) {
+     return null;
     }
     public String buscarevento(ArrayList<Eventos>listaEventos,String codigo){
      for (Eventos event : listaEventos) {
@@ -267,20 +276,6 @@ class AlmacenUsuarios {
                 event.AgregarPlayer();
             }
         }
-//        String nombreevento="";
-//        String fecha="";
-//        String code="";
-//        int cantidadper=1;
-//        String descripcion="";
-//        String tipoevento="";
-//        double monto=1;
-//        String tipomusica="";
-//        String tipodeporte="";
-//        String Userloggin="";
-//        String equipo1="";
-//        String equipo2="";
-//        event =new Eventos(nombreevento, fecha, code, cantidadper, descripcion,tipoevento,monto,tipomusica,tipodeporte,Userloggin,equipo1,equipo2);
-//        event.AgregarPlayer();
     }
     public void añadirmusicos(String codigo){
         for (Eventos event : listaEventos) {
@@ -288,44 +283,46 @@ class AlmacenUsuarios {
                 event.Agregarmusic();
             }
         }
-        
-        
-//    String nombreevento="";
-//        String fecha="";
-//        String code="";
-//        int cantidadper=1;
-//        String descripcion="";
-//        String tipoevento="";
-//        double monto=1;
-//        String tipomusica="";
-//        String tipodeporte="";
-//        String Userloggin="";
-//        String equipo1="";
-//        String equipo2="";
-//        event =new Eventos(nombreevento, fecha, code, cantidadper, descripcion,tipoevento,monto,tipomusica,tipodeporte,Userloggin,equipo1,equipo2);
-//        event.Agregarmusic();
     }
-    public void añadirinfouser(String codigo,String info){
+    public void añadirinfouser(String codigo,String Userloging){
         for (Usuario usuarios : listaUsuarios) {
-            if (usuarios.getUsername().equals(codigo)) {
-               usuarios.setEventoscreados(info);
+            if (usuarios.getUsername().equals(Userloging)) {
+               usuarios.agregarevet(codigo);
             }
         }
-        
-//        String name=" ";
-//        String user1="";
-//        String pasword="";
-//        String tipouser="";
-//        int edad=3;
-//        user= new Usuario( user1, name, pasword,edad,tipouser);
-//        user.setEventoscreados(info);
-//        listaEventos
-//        for (Eventos event : listaEventos) {
-//            if (event.getCode().equals(codigo)) {
-//                 event.getCode();
-//            }
-//        }
-//        return null; // Devuelve null si el evento no se encuentra en la lista
-//        S
     }
+    public String usu(String codigo) {
+        String info="";
+        String[] arreglo = new String[150];
+        
+    for (Usuario usuarios : listaUsuarios) {
+        if (usuarios.getUsername().equals(codigo)) {
+            arreglo = usuarios.eventocreados();
+        }
+        }
+    for(int i=0;i<arreglo.length;i++){
+            System.out.println("ARREGLO:      ///"+arreglo[i]);
+        }
+    for(int i=0;i<arreglo.length;i++){
+    if(!arreglo[i].equals("")){
+        System.out.println("Si entre");
+    info+=mostrarinfoeventos(arreglo[i]);
+    }
+    }
+        System.out.println("no entre");
+    return info;
+    }
+    public String info(){
+    return event.toString(true);
+    }
+    public String pasados() {
+        String nombreCompleto = "Nombre";
+        String username = "Usuario";
+        String contraseña = "Contraseña";
+        int edad = 30;
+        String tipoUsuario = "Tipo";
+        info = new Eventos_Alma( nombreCompleto, username,contraseña,edad, tipoUsuario);
+        return info.eventospasados();
+    }
+
 }

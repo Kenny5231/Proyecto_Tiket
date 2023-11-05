@@ -10,11 +10,21 @@ package proyecto_eventos_kenny_menjivar;
  */
 public class Lista_eventos_realizados extends javax.swing.JFrame {
     Reportes au;
+    Puente puente;
     /**
      * Creates new form Lista_eventos_realizados
      */
     public Lista_eventos_realizados() {
         initComponents();
+        String name=" ";
+        String user="";
+        String pasword="";
+        String tipouser="";
+        int Edad=0;
+        puente= new Puente(name, user, pasword, Edad,tipouser);
+        //puente.eventpasados();
+        
+        texto.setText(puente.eventpasados());
     }
 
     /**
@@ -28,7 +38,7 @@ public class Lista_eventos_realizados extends javax.swing.JFrame {
 
         jLabel2 = new javax.swing.JLabel();
         Regresar = new javax.swing.JButton();
-        textArea1 = new java.awt.TextArea();
+        texto = new java.awt.TextArea();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -45,7 +55,7 @@ public class Lista_eventos_realizados extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Regresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 460, -1, -1));
-        getContentPane().add(textArea1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 730, 390));
+        getContentPane().add(texto, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 730, 390));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 500));
 
         pack();
@@ -97,6 +107,6 @@ public class Lista_eventos_realizados extends javax.swing.JFrame {
     private javax.swing.JButton Regresar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private java.awt.TextArea textArea1;
+    private java.awt.TextArea texto;
     // End of variables declaration//GEN-END:variables
 }

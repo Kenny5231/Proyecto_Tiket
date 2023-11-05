@@ -100,7 +100,11 @@ public class Crear_evento extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         jLabel5.setText("Nombre del evento:");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 150, -1));
+
+        Codigo.setText("21");
         getContentPane().add(Codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 130, -1));
+
+        nombreevent.setText("13");
         getContentPane().add(nombreevent, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 130, -1));
 
         jLabel6.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
@@ -117,6 +121,7 @@ public class Crear_evento extends javax.swing.JFrame {
 
         descripcion.setColumns(20);
         descripcion.setRows(5);
+        descripcion.setText("414");
         jScrollPane1.setViewportView(descripcion);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, -1, -1));
@@ -137,6 +142,8 @@ public class Crear_evento extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         jLabel1.setText("Cantidad de personas:");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, 160, -1));
+
+        cantpersonas.setText("35");
         getContentPane().add(cantpersonas, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, 140, -1));
 
         Todo_listo.setText("Todo listo");
@@ -219,7 +226,7 @@ System.out.println("porno");
         String Minuto = minuto.getSelectedItem().toString();
         if (selectedDate != null) {
          SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd");
-          fecha = f.format(selectedDate) + " " +Hora+" "+Minuto;
+          fecha = f.format(selectedDate) + " " +Hora+":"+Minuto;
             fechafinal="Fecha: "+f.format(selectedDate)+" Hora: "+Hora+" Minuto: "+Minuto;
          System.out.println("fecha: " + fecha);
          } else {
@@ -257,9 +264,8 @@ System.out.println("porno");
         puente.agregarevent(nombreevento,fecha,code,Cantpersonas,Descripcion,tipoevent,monto,tipomusic,tipojuego,userloging,equipo1,equipo2);
         JOptionPane.showMessageDialog(null, "Evento creado a la "+fechafinal);
         puente.mostrarevent();
-            System.out.println("code: "+code);
-        String info="[Code: "+code+" Fecha: "+fecha+" Tipo de evento: "+tipoevent +" Descripcion: "+Descripcion+"]\n";
-        puente.agregarinfoevent(userloging,info);
+            System.out.println("CODE;                ++++++++:"+code);
+        puente.agregarinfoevent(code,userloging);
         event = new Administrador_eventos();    
         event.setVisible(true);
         this.dispose();

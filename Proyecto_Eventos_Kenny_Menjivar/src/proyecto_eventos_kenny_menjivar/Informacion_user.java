@@ -26,7 +26,8 @@ public class Informacion_user extends javax.swing.JFrame {
         puente = new Puente(Username,contra,tipouser,edad,nombrecom);
         Username=puente.getUserloggin();
         contra= puente.getPasswordlogin();
-        String eventcreados= puente.eventosjugador(Username);
+        //String eventcreados= puente.eventosjugador(Username);
+        String eventcreados=puente.intent(Username);
         System.out.println("eventos player: "+eventcreados);
          tipouser= puente.getTipouserlogin();  
          nombrecom= puente.getNamelogin();
@@ -36,6 +37,7 @@ public class Informacion_user extends javax.swing.JFrame {
         tipo.setText(tipouser); 
         nombre.setText(nombrecom); 
         Eventoscreados.setText(eventcreados);
+        
     }
 
     /**
@@ -69,7 +71,7 @@ public class Informacion_user extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
         jLabel2.setText("Perfil del Usuario");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, 240, 50));
-        getContentPane().add(Eventoscreados, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 280, 230, 90));
+        getContentPane().add(Eventoscreados, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 280, 340, 160));
 
         jLabel3.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         jLabel3.setText("Eventos creados por el user:");

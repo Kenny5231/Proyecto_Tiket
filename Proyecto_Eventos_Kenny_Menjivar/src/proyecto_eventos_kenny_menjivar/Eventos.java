@@ -182,7 +182,13 @@ public class Eventos {
     public void setTipomusica(String tipomusica) {
         this.tipomusica = tipomusica;
     }
+    public String toString(boolean lt){
+        return "CODIGO: "+code +"– TIPO: "+tipevento+" - TITULO: "+ nombre+"– FECHA: "+fechaevento+" – MONTO: "+monto+"\n";
+    }
+    
+    
     @Override
+    
     public String toString() {
         String info= "Usuario{\n" +
         "Username='"+nombre+"',\n" +
@@ -198,13 +204,6 @@ public class Eventos {
             info+="tipo de deporte='"+tipodeporte+"}";
         }
         return info;
+         
     }
-
-//    public static ArrayList<Musical> getMusical() {
-//        return musical;
-//    }
-//
-//    public static void setMusical(ArrayList<Musical> musical) {
-//        Eventos.musical = musical;
-//    }
   }

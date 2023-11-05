@@ -58,6 +58,12 @@ public class Editar_evento extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         jLabel3.setText("Ingrese el codigo del evento:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 220, 20));
+
+        Code.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CodeActionPerformed(evt);
+            }
+        });
         getContentPane().add(Code, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 140, -1));
 
         javax.swing.GroupLayout Panel_unicoLayout = new javax.swing.GroupLayout(Panel_unico);
@@ -131,6 +137,10 @@ public class Editar_evento extends javax.swing.JFrame {
         enp.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_RegresarActionPerformed
+
+    private void CodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CodeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CodeActionPerformed
 
     /**
      * @param args the command line arguments
