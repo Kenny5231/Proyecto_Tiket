@@ -9,6 +9,13 @@ package proyecto_eventos_kenny_menjivar;
  * @author Kenny
  */
 public enum Enum {
-    //precios
-    
+    Activo ("Activo"),
+    Cancelado("Cancelado");
+    private final String estado;
+    private Enum(String estado){
+    this.estado=estado;
+    }
+    public String getEstado(){
+    return estado;
+    }
 }

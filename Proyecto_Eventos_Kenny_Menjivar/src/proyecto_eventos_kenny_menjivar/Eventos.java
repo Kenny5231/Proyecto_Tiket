@@ -4,7 +4,10 @@
  */
 package proyecto_eventos_kenny_menjivar;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import static proyecto_eventos_kenny_menjivar.AlmacenUsuarios.listaUsuarios;
 
@@ -13,6 +16,8 @@ import static proyecto_eventos_kenny_menjivar.AlmacenUsuarios.listaUsuarios;
  * @author Kenny
  */
 public class Eventos {
+    private Enum estado=Enum.Activo;
+    private double multa=0;
     private String nombre;
     private String code;
     private String tipevento;
@@ -83,6 +88,7 @@ public class Eventos {
     }
     }
     
+    
     public String getNombre() {
         return nombre;
     }
@@ -130,6 +136,10 @@ public class Eventos {
     public void setMonto(double monto) {
         this.monto = monto;
     }
+    
+    public double getMulta() {
+        return multa;
+    }
 
 //    public String getFechacreate() {
 //        return fechacreate;
@@ -138,6 +148,9 @@ public class Eventos {
 //    public void setFechacreate(String fechacreate) {
 //        this.fechacreate = fechacreate;
 //    }
+    public void setMulta(double multa) {    
+        this.multa = multa;
+    }
 
     public String getDescripcion() {
         return Descripcion;
@@ -170,6 +183,12 @@ public class Eventos {
     public void setTipomusica(String tipomusica) {
         this.tipomusica = tipomusica;
     }
+    public String toString(int n){
+        if(getEstado().equals("Cancelado")){
+        multa=100;
+        }
+      return"CODIGO: "+code +"– TIPO: "+tipevento+" - TITULO: "+ nombre+"– FECHA: "+fechaevento+" – Multa: "+multa+"\n";
+    }
     public String toString(boolean lt){
         return "CODIGO: "+code +"– TIPO: "+tipevento+" - TITULO: "+ nombre+"– FECHA: "+fechaevento+" – MONTO: "+monto+"\n";
     }
@@ -178,8 +197,9 @@ public class Eventos {
     @Override
     
     public String toString() {
-        String info= "Usuario{\n" +
+        String info= "Evento{\n" +
         "Username='"+nombre+"',\n" +
+        "Estado evento= '"+getEstado()+"',\n" +        
         "codigo='"+code+"',\n" +
         "fecha evento='"+fechaevento+"',\n" +
         "descripcion='"+Descripcion+"',\n" +
@@ -193,5 +213,27 @@ public class Eventos {
         }
         return info;
          
+    }
+    // Getter para obtener el estado
+    public Enum getEstado() {
+        return estado;
+    }
+
+    // Setter para actualizar el estado
+    public void setEstado(Enum estado) {
+        this.estado = estado;
+    }
+    public int compareTo(Eventos otroEvento) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        try {
+            Date fechaEvento = dateFormat.parse(this.getFechaevento());
+            Date otraFechaEvento = dateFormat.parse(otroEvento.getFechaevento());
+            // Compara las fechas de los eventos para la ordenación
+            return otraFechaEvento.compareTo(fechaEvento); // Para ordenar de más reciente a más antigua
+        } catch (ParseException e) {
+            e.printStackTrace();
+            // Manejo de errores
+            return 0; // Cambia esto según tus necesidades
+        }
     }
   }

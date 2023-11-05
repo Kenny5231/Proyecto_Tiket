@@ -156,7 +156,6 @@ Puente puente;
     String Hora2=hora2.getSelectedItem().toString();
     String minuto2=Minuto2.getSelectedItem().toString();
     //envio
-    
     puente.getenviofecha1(fecha1+" "+Hora1+":"+Minuto1);
         System.out.println("fecha1: send  :"+fecha1+" "+Hora1+":"+Minuto1);
     puente.getenviofecha2(fecha2+" "+Hora2+":"+minuto2);   

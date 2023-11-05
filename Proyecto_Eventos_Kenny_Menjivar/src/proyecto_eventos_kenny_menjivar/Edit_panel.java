@@ -65,7 +65,12 @@ Editar_evento edit;
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, -1, -1));
 
         tipoevent.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Deportivo", "Religioso", "Musical" }));
-        add(tipoevent, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
+        tipoevent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tipoeventActionPerformed(evt);
+            }
+        });
+        add(tipoevent, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         jLabel2.setText("Nombre del Evento:");
@@ -74,23 +79,23 @@ Editar_evento edit;
 
         jLabel3.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         jLabel3.setText("Descripcion del Evento:");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, -1, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, -1, 20));
 
         descripcion.setColumns(20);
         descripcion.setRows(5);
         jScrollPane1.setViewportView(descripcion);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, -1, -1));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, -1, 80));
 
         jLabel4.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         jLabel4.setText("Cantidad de Personas:");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 162, -1));
-        add(cantpersonas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 148, -1));
+        add(cantpersonas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 148, -1));
 
         jLabel7.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         jLabel7.setText("Fecha y hora:");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, -1, -1));
-        add(calendar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, 170, -1));
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, -1, -1));
+        add(calendar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 170, -1));
 
         jLabel8.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         jLabel8.setText("Hora:");
@@ -110,11 +115,11 @@ Editar_evento edit;
         Pane.setLayout(PaneLayout);
         PaneLayout.setHorizontalGroup(
             PaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 350, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         PaneLayout.setVerticalGroup(
             PaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 230, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         add(Pane, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 60, 350, -1));
@@ -133,12 +138,12 @@ Editar_evento edit;
                 GuardarActionPerformed(evt);
             }
         });
-        add(Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 330, -1, -1));
+        add(Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 330, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         jLabel5.setText("Nuevo Codigo");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
-        add(newCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 140, -1));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        add(newCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 140, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void refrescarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refrescarActionPerformed
@@ -221,6 +226,10 @@ Editar_evento edit;
         }
 
     }//GEN-LAST:event_GuardarActionPerformed
+
+    private void tipoeventActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoeventActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tipoeventActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

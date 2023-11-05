@@ -10,11 +10,19 @@ package proyecto_eventos_kenny_menjivar;
  */
 public class Listar_Eventos_Cancelados extends javax.swing.JFrame {
     Reportes rep;
+    Puente puente;
     /**
      * Creates new form Listar_Eventos_Cancelados
      */
     public Listar_Eventos_Cancelados() {
         initComponents();
+        String nombre1=" ";
+        String user="";
+        String pasword="";
+        String tipouser="";
+        int Edad=0;
+        puente= new Puente(nombre1, user, pasword, Edad,tipouser);
+        texto.setText(puente.eventdelete());
     }
 
     /**
@@ -28,7 +36,7 @@ public class Listar_Eventos_Cancelados extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        textArea1 = new java.awt.TextArea();
+        texto = new java.awt.TextArea();
         Back = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -38,7 +46,7 @@ public class Listar_Eventos_Cancelados extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
         jLabel2.setText("Lista de eventos cancelados");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, 267, 42));
-        getContentPane().add(textArea1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 774, 385));
+        getContentPane().add(texto, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 774, 385));
 
         Back.setText("Regresar");
         Back.addActionListener(new java.awt.event.ActionListener() {
@@ -53,6 +61,7 @@ public class Listar_Eventos_Cancelados extends javax.swing.JFrame {
 
     private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
         // TODO add your handling code here:
+        
         rep = new Reportes();
         rep.setVisible(true);
         this.dispose();
@@ -97,6 +106,6 @@ public class Listar_Eventos_Cancelados extends javax.swing.JFrame {
     private javax.swing.JButton Back;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private java.awt.TextArea textArea1;
+    private java.awt.TextArea texto;
     // End of variables declaration//GEN-END:variables
 }

@@ -10,6 +10,7 @@ package proyecto_eventos_kenny_menjivar;
  * @author Kenny
  */
 class AlmacenUsuarios {
+    
     private String Informacioneventuser="";
     private String nombreCompleto;
     public String username;
@@ -29,6 +30,9 @@ class AlmacenUsuarios {
     Usuario user;
     Eventos_Alma info;
     Puente puente;
+    
+    
+    
     
     
     
@@ -245,13 +249,60 @@ class AlmacenUsuarios {
     public  void eliminarEvent(String code) {
         for (Eventos event : listaEventos) {
             if (event.getCode().equals(code)) {
-                listaEventos.remove(event);
-                System.out.println("Codigo eliminado: " + code);
+                event.setEstado(Enum.Cancelado);
+                System.out.println("Estado: "+ event.getEstado());
+                System.out.println("Codigo Cancelado: " + code);
                 return;
             }
         }
         System.out.println("Usuario no encontrado: " + code);
     }
+    public  void vereventdelete(String code) {
+        for (Eventos event : listaEventos) {
+            if (event.getCode().equals(code)) {
+                event.setEstado(Enum.Cancelado);
+                System.out.println("Codigo Cancelado: " + code);
+                return;
+            }
+        }
+        System.out.println("Usuario no encontrado: " + code);
+    }
+    
+    public String vereventdelete() {
+    String info = "";
+    int deportivo=0;
+        double mondepo=0;
+        int musical=0;
+        double montmusical=0;
+        int religioso=0;
+        double monreli=0;
+        int totalevent=0;
+
+    for (Eventos event : listaEventos) {
+        if (event.getEstado() == Enum.Cancelado) {
+            info += event.toString(0);
+            if(event.getTipevento().equals("Deportivo")){
+        deportivo++;
+        mondepo=event.getMulta();
+        }else if(event.getTipevento().equals("Musical")){
+        musical++;
+        montmusical=event.getMulta();
+        }else if(event.getTipevento().equals("Religioso")){
+        religioso++;
+        monreli=event.getMulta();
+        }
+        }
+    }
+    totalevent=deportivo+musical+religioso;
+    double total=montmusical+mondepo+monreli;
+    info+="*****Eventos que fueron deportivos*****\n"+deportivo+" Fueron deportivos.\n"+religioso+" Fueron religiosos.\n"+musical+" Fueron musical.\n *****Monto*****\n"+mondepo+" es el monto del tipo deportivo.\n"+montmusical+" es el monto del tipo musical.\n"+monreli+" es el monto del tipo\n"+"Total generado por indemnización: "+total;
+    System.out.println("Eventos Cancelados: " + info);
+    return info;
+    }
+
+    
+    
+    
     public Eventos buscarEventoPorcode(ArrayList<Eventos> listaEventos, String codeBuscado) {
         for (Eventos event : listaEventos) {
             if (event.getCode().equals(codeBuscado)) {

@@ -247,4 +247,7 @@ class Puente extends AlmacenUsuarios {
     public String sendfecha(){
     return super.sendfecha();
     }
+    public String eventdelete(){
+        return super.vereventdelete();
+    }
 }
