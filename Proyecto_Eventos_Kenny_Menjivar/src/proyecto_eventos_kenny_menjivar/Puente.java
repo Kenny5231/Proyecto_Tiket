@@ -25,7 +25,8 @@ class Puente extends AlmacenUsuarios {
     static String nombrecomlogin;
     static String tipouserlogin;
     static int edadlogin;
-
+    private static String fecha1;
+    private static String fecha2;
     public static String getNamelogin() {
         return namelogin;
     }
@@ -227,5 +228,23 @@ class Puente extends AlmacenUsuarios {
     public String eventFuturos(){
     return super.Futuros();
     }
-    
+    public String setenviofecha1(){
+    return fecha1;
+    }
+    public String setenviofecha2(){
+    return fecha2;
+    }
+    public void getenviofecha1(String Fecha1){
+        System.out.println("Esto llega a puente de la fecha1: "+Fecha1);
+    this.fecha1=Fecha1;
+        System.out.println("Eta es la fecha1 "+this.fecha1);
+    }
+    public void getenviofecha2(String Fecha2){
+    this.fecha2=Fecha2;
+            System.out.println("Eta es la fecha2 "+this.fecha2);
+
+    }
+    public String sendfecha(){
+    return super.sendfecha();
+    }
 }

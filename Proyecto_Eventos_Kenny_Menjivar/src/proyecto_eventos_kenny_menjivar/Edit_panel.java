@@ -96,7 +96,7 @@ Editar_evento edit;
         jLabel8.setText("Hora:");
         add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 310, 52, -1));
 
-        hora.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "10", "1", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23" }));
+        hora.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23" }));
         add(hora, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 330, 50, -1));
 
         jLabel9.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N

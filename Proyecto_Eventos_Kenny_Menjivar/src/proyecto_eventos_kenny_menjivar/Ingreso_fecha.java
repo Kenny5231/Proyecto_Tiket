@@ -4,12 +4,16 @@
  */
 package proyecto_eventos_kenny_menjivar;
 
+import java.text.SimpleDateFormat;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Kenny
  */
 public class Ingreso_fecha extends javax.swing.JFrame {
 Reportes rep;
+Puente puente;
     /**
      * Creates new form Ingreso_fecha
      */
@@ -27,13 +31,21 @@ Reportes rep;
     private void initComponents() {
 
         jLabel2 = new javax.swing.JLabel();
-        textArea1 = new java.awt.TextArea();
         Back = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        inicial = new com.toedter.calendar.JDateChooser();
+        texto = new java.awt.TextArea();
         jLabel4 = new javax.swing.JLabel();
-        jDateChooser2 = new com.toedter.calendar.JDateChooser();
-        jButton1 = new javax.swing.JButton();
+        fechafinal = new com.toedter.calendar.JDateChooser();
+        refrescar = new javax.swing.JButton();
+        hora1 = new javax.swing.JComboBox<>();
+        hora2 = new javax.swing.JComboBox<>();
+        Minuto2 = new javax.swing.JComboBox<>();
+        minuto1 = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         Refrescar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -42,7 +54,6 @@ Reportes rep;
         jLabel2.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
         jLabel2.setText("Ingreso por fecha");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, 180, 30));
-        getContentPane().add(textArea1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 760, 360));
 
         Back.setText("Regresar");
         Back.addActionListener(new java.awt.event.ActionListener() {
@@ -50,20 +61,54 @@ Reportes rep;
                 BackActionPerformed(evt);
             }
         });
-        getContentPane().add(Back, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 460, -1, -1));
+        getContentPane().add(Back, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 470, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         jLabel3.setText("Fecha Inicial:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
-        getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 130, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
+        getContentPane().add(inicial, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 130, -1));
+        getContentPane().add(texto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 760, 360));
 
         jLabel4.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         jLabel4.setText("Fecha Final:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 50, 90, -1));
-        getContentPane().add(jDateChooser2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 50, 130, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 70, 90, -1));
+        getContentPane().add(fechafinal, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 70, 130, -1));
 
-        jButton1.setText("Refrescar");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 460, -1, -1));
+        refrescar.setText("Refrescar");
+        refrescar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refrescarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(refrescar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 470, -1, -1));
+
+        hora1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23" }));
+        getContentPane().add(hora1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 70, 50, -1));
+
+        hora2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23" }));
+        getContentPane().add(hora2, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 70, 50, -1));
+
+        Minuto2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "59" }));
+        getContentPane().add(Minuto2, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 70, 60, -1));
+
+        minuto1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "59" }));
+        getContentPane().add(minuto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 70, 50, -1));
+
+        jLabel1.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        jLabel1.setText("Hora:");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 50, 50, -1));
+
+        jLabel5.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        jLabel5.setText("Minuto:");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 50, 60, -1));
+
+        jLabel6.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        jLabel6.setText("Hora:");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 50, -1, -1));
+
+        jLabel7.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        jLabel7.setText("Minuto:");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 50, -1, -1));
         getContentPane().add(Refrescar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 500));
 
         pack();
@@ -71,10 +116,63 @@ Reportes rep;
 
     private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
         // TODO add your handling code here:
+            
         rep = new Reportes();
         rep.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BackActionPerformed
+
+    private void refrescarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refrescarActionPerformed
+        // TODO add your handling code here:
+        String username = "";
+        String password = "";
+        String name = "haajkl"; 
+        String fullName = "vß∆ghv";
+        int age = 87;
+        String userType = "Admin";
+         puente = new Puente(username, password, name, age, userType);
+        // Primera fecha
+        //yyyy-MM-dd HH:mm
+    java.util.Date selectedDate = inicial.getDate();
+    String fecha1 = "";
+    if (selectedDate != null) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        fecha1 = dateFormat.format(selectedDate);
+        System.out.println("Primera fecha: " + fecha1);
+    }
+
+    // Segunda fecha
+    java.util.Date selectedDate2 = fechafinal.getDate();  // Asumiendo que 'fechafinal' es un componente que permite seleccionar una fecha
+    String fecha2 = "";
+    if (selectedDate2 != null) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        fecha2 = dateFormat.format(selectedDate2);
+        System.out.println("Segunda fecha: " + fecha2);
+    }
+    if(!fecha1.equals("")&&!fecha2.equals("")){
+        //agarro los minutos y horas
+    String Minuto1=minuto1.getSelectedItem().toString();
+    String Hora1= hora1.getSelectedItem().toString();
+    String Hora2=hora2.getSelectedItem().toString();
+    String minuto2=Minuto2.getSelectedItem().toString();
+    //envio
+    
+    puente.getenviofecha1(fecha1+" "+Hora1+":"+Minuto1);
+        System.out.println("fecha1: send  :"+fecha1+" "+Hora1+":"+Minuto1);
+    puente.getenviofecha2(fecha2+" "+Hora2+":"+minuto2);   
+    System.out.println("fecha2: send  :"+fecha2+" "+Hora2+":"+minuto2);
+
+    
+    
+    String info=puente.sendfecha();
+    texto.setText(info);
+    }else{
+        JOptionPane.showMessageDialog(null, "No ingreso la fecha");
+    }
+                
+        
+        //fechafinal
+    }//GEN-LAST:event_refrescarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -113,13 +211,21 @@ Reportes rep;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Back;
+    private javax.swing.JComboBox<String> Minuto2;
     private javax.swing.JLabel Refrescar;
-    private javax.swing.JButton jButton1;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
-    private com.toedter.calendar.JDateChooser jDateChooser2;
+    private com.toedter.calendar.JDateChooser fechafinal;
+    private javax.swing.JComboBox<String> hora1;
+    private javax.swing.JComboBox<String> hora2;
+    private com.toedter.calendar.JDateChooser inicial;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private java.awt.TextArea textArea1;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JComboBox<String> minuto1;
+    private javax.swing.JButton refrescar;
+    private java.awt.TextArea texto;
     // End of variables declaration//GEN-END:variables
 }

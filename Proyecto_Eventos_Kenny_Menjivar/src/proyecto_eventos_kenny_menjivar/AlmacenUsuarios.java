@@ -23,10 +23,12 @@ class AlmacenUsuarios {
     static String nameloging;
     static int edadloggin;
     static String tipouserloggin;
+    static String fecha1;
+    static String fecha2;
     Eventos event;
     Usuario user;
     Eventos_Alma info;
-    
+    Puente puente;
     
     
     
@@ -315,6 +317,7 @@ class AlmacenUsuarios {
     public String info(){
     return event.toString(true);
     }
+    //repotes
     public String pasados() {
         String nombreCompleto = "Nombre";
         String username = "Usuario";
@@ -333,5 +336,17 @@ class AlmacenUsuarios {
         info = new Eventos_Alma( nombreCompleto, username,contraseña,edad, tipoUsuario);
         return info.eventosfuturos();
     }
-
+    public String sendfecha(){
+        String nombreCompleto = "Nombre";
+        String username = "Usuario";
+        String contraseña = "Contraseña";
+        int edad = 30;
+        String tipoUsuario = "Tipo";
+        info = new Eventos_Alma( nombreCompleto, username,contraseña,edad, tipoUsuario);
+        puente = new Puente(username, contraseña, nombreCompleto, edad, tipoUsuario);
+        fecha1=puente.setenviofecha1();
+        fecha2=puente.setenviofecha2();
+        System.out.println("Estoy en almacen: fecha1: "+fecha1+" fecha2: "+fecha2);
+    return info.encontrarfecha(fecha1,fecha2);
+    }
 }

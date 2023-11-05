@@ -73,7 +73,6 @@ public class Eventos {
     String jugador = JOptionPane.showInputDialog("Ingrese el nombre de jugardor numero: "+i);
     equi1.add(new Equipo1(jugador));
     }
-    //para agregar el segundo equipo
     for(int i=0;i<jugadores2;i++){
         if(mostrar2){
              JOptionPane.showMessageDialog(null, "Ingrese el nombre de los jugadores del segundo equipo");    
@@ -82,17 +81,6 @@ public class Eventos {
     String jugador2 = JOptionPane.showInputDialog("Ingrese el nombre de jugardor numero: "+i);
     equi2.add(new Equipo2(jugador2));
     }
-    
-        System.out.println("Se han agregado todos los jugadores");
-        System.out.println("Primer equipo: ");
-        for (Equipo1 a : equi1) {
-            System.out.println(a.toString() + " jugador1");
-        }
-        System.out.println("Segundo equipo: ");
-        for (Equipo2 e : equi2) {
-            System.out.println(e.toString() + " jugador2");
-        }
-        
     }
     
     public String getNombre() {
