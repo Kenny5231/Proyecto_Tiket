@@ -201,7 +201,7 @@ public class Eventos {
         if(tipevento.equals("Musical")){
             info+= "tipo de musica='"+tipomusica+"}";
         }else if (tipevento.equals("Deportivo")){
-            info+="tipo de deporte='"+tipodeporte+"}";
+            info+="tipo de deporte='"+tipodeporte+"}\n\n";
         }
         return info;
          

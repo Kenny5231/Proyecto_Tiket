@@ -224,6 +224,8 @@ class Puente extends AlmacenUsuarios {
     public String eventpasados(){
     return super.pasados();
     }
-    
+    public String eventFuturos(){
+    return super.Futuros();
+    }
     
 }

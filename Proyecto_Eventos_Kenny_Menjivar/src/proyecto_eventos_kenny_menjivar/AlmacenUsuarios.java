@@ -324,5 +324,14 @@ class AlmacenUsuarios {
         info = new Eventos_Alma( nombreCompleto, username,contraseña,edad, tipoUsuario);
         return info.eventospasados();
     }
+    public String Futuros() {
+        String nombreCompleto = "Nombre";
+        String username = "Usuario";
+        String contraseña = "Contraseña";
+        int edad = 30;
+        String tipoUsuario = "Tipo";
+        info = new Eventos_Alma( nombreCompleto, username,contraseña,edad, tipoUsuario);
+        return info.eventosfuturos();
+    }
 
 }

@@ -10,11 +10,22 @@ package proyecto_eventos_kenny_menjivar;
  */
 public class Listar_eventos_futuros extends javax.swing.JFrame {
     Reportes au;
+    Puente puente;
     /**
      * Creates new form Listar_eventos_futuros
      */
     public Listar_eventos_futuros() {
+        
         initComponents();
+        String username ="cef";
+        String password = "dfr";
+        String name = "haajkl"; 
+        String fullName = "vß∆ghv";
+        int age = 87;
+        String userType = "Admin";
+    Puente puente = new Puente(username, password, name, age, userType);
+    texto.setText(puente.eventFuturos());
+    
     }
 
     /**
@@ -28,7 +39,7 @@ public class Listar_eventos_futuros extends javax.swing.JFrame {
 
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        textArea1 = new java.awt.TextArea();
+        texto = new java.awt.TextArea();
         Back = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
@@ -39,7 +50,7 @@ public class Listar_eventos_futuros extends javax.swing.JFrame {
         jLabel2.setText("Listar Eventos Futuros");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, 270, 60));
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 150, -1, -1));
-        getContentPane().add(textArea1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 760, 380));
+        getContentPane().add(texto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 760, 380));
 
         Back.setText("Regresar");
         Back.addActionListener(new java.awt.event.ActionListener() {
@@ -100,6 +111,6 @@ public class Listar_eventos_futuros extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private java.awt.TextArea textArea1;
+    private java.awt.TextArea texto;
     // End of variables declaration//GEN-END:variables
 }
