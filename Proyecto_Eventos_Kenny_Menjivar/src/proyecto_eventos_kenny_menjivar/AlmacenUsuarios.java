@@ -442,15 +442,33 @@ public abstract class AlmacenUsuarios {
         return null;
     }
     
-    public String sentinfo(String code){
-        for (Eventos event : listaEventos) {
-            if (event.getCode().equals(code)) {
-                return event.toString("bkf");
+    public String sentinfo(String codigo){
+        String info="";
+        String[] arreglo = new String[150];
+        
+    for (Usuario usuarios : listaUsuarios) {
+        if (usuarios.getUsername().equals(codigo)) {
+            arreglo = usuarios.eventocreados();
+        }
+        }
+    for(int i=0;i<arreglo.length;i++){
+    if(!arreglo[i].equals("")){
+        System.out.println("Si entre");
+    info+=infoperfil(arreglo[i]);
+    }
+    }
+        System.out.println("no entre");
+    return info;
+    }
+    public String infoperfil(String code) {
+        for (Eventos l : listaEventos) {
+            if(l.getCode().equals(code)){
+            System.out.println(l);
+            return l.toString("gkj");
             }
         }
         return null;
     }
-    
     
     
     
