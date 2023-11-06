@@ -19,11 +19,20 @@ import static proyecto_eventos_kenny_menjivar.AlmacenUsuarios.listaEventos;
  */
 public class Eventos_Alma extends AlmacenUsuarios {
     
-    String nombreCompleto;
-    String username;
-    String contraseña;
-    int edad;
-    String tipoUsuario;
+    static String nombreCompleto;
+    static String username;
+    static String contraseña;
+    static int edad;
+    static String tipoUsuario;
+    
+    static String info = "";
+    int deportivo = 0;
+    double mondepo = 0;
+    int musical = 0;
+    double montmusical = 0;
+    int religioso = 0;
+    double monreli = 0;
+    int totalevent = 0;
     public Eventos_Alma(String nombreCompleto, String username, String contraseña, int edad, String tipoUsuario) {
         super(nombreCompleto, username, contraseña, edad, tipoUsuario); // Llama al constructor de AlmacenUsuarios
         this.nombreCompleto = nombreCompleto;
@@ -81,14 +90,14 @@ public class Eventos_Alma extends AlmacenUsuarios {
     }
     
     public String encontrarfecha(String fecha1, String fecha2) {
-    String info = "";
-    int deportivo = 0;
-    double mondepo = 0;
-    int musical = 0;
-    double montmusical = 0;
-    int religioso = 0;
-    double monreli = 0;
-    int totalevent = 0;
+     info = "";
+     deportivo = 0;
+     mondepo = 0;
+     musical = 0;
+     montmusical = 0;
+     religioso = 0;
+     monreli = 0;
+     totalevent = 0;
 
     SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 
@@ -109,13 +118,13 @@ public class Eventos_Alma extends AlmacenUsuarios {
                 info += event.toString(true);
                 if (event.getTipevento().equals("Deportivo")) {
                     deportivo++;
-                    mondepo = event.getMonto();
+                    mondepo += event.getMonto();
                 } else if (event.getTipevento().equals("Musical")) {
                     musical++;
-                    montmusical = event.getMonto();
+                    montmusical += event.getMonto();
                 } else if (event.getTipevento().equals("Religioso")) {
                     religioso++;
-                    monreli = event.getMonto();
+                    monreli += event.getMonto();
                 }
             }
         }
