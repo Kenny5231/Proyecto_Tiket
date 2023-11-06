@@ -250,4 +250,20 @@ class Puente extends AlmacenUsuarios {
     public String eventdelete(){
         return super.vereventdelete();
     }
+    public String createevent(String code){
+    return super.getUssercreateevent(code);
+    }
+    public String agarrarfecha(String code){
+    return super.getfecha(code);
+    }
+    public double enviomonto(String code){
+    return super.getmulta(code);
+    }
+    public void sendmunta(String code,double multa){
+    super.enviomultaevent(code, multa);
+    }
+    public String sendtpuser(String code){
+    return super.sendtipouser(code);
+    }
+    
 }

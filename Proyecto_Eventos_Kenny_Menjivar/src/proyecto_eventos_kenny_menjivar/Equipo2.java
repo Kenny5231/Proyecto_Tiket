@@ -24,7 +24,7 @@ public class Equipo2 {
     }
     @Override
     public String toString(){
-    return nombrejugador;
+    return "Nombre: "+nombrejugador;
     }
     
 }

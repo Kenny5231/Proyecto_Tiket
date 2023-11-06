@@ -18,6 +18,7 @@ public class Crear_evento extends javax.swing.JFrame {
     Deportes_panel dp;
     Panel_musical mp;
     Puente puente;
+    preciosfinal precio;
     /**
      * Creates new form Crear_evento
      */
@@ -25,7 +26,8 @@ public class Crear_evento extends javax.swing.JFrame {
     private JComboBox <String> minutosComboBox;
     public boolean antes=true;
     public String modo="nulo";
-    
+    private static double monto=-10000;
+    private int capacidad;
     
     
     
@@ -65,6 +67,8 @@ public class Crear_evento extends javax.swing.JFrame {
         minuto = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        montoaco = new javax.swing.JTextField();
 
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
         panel1.setLayout(panel1Layout);
@@ -171,6 +175,11 @@ public class Crear_evento extends javax.swing.JFrame {
         jLabel9.setText("Minuto:");
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 70, -1, -1));
 
+        jLabel10.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        jLabel10.setText("Monto acordado:");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 410, 160, 20));
+        getContentPane().add(montoaco, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, 140, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -180,10 +189,21 @@ public class Crear_evento extends javax.swing.JFrame {
         String user="";
         String pasword="";
         String tipouser="";
+        
         int Edad=0;
-        puente= new Puente(name, user, pasword, Edad,tipouser);
+        puente = new Puente(name, user, pasword, Edad,tipouser);
+        precio = new preciosfinal(name, user, pasword, Edad,tipouser);
         if(antes){
         modo=Combo_tipo_de_evento.getSelectedItem().toString();
+        String SMonto=montoaco.getText();
+    try {
+         double Monto = Integer.parseInt(SMonto);
+         monto=Monto;
+         System.out.println("dentro de try monto: "+monto);
+    } catch (NumberFormatException e) {
+        monto=-100;
+    }
+            System.out.println("tras que salgo de try: "+monto);
 //        antes=false;
 System.out.println("porno");
         if(modo.equals("Religioso")){
@@ -239,28 +259,39 @@ System.out.println("porno");
         String userloging=puente.getUserloggin();
         if(modo.equals("Musical")){
          tipomusic=mp.getTipomusica();
-           System.out.println("tipo de musica: "+tipomusic);
+         capacidad=25000;
         }else if(modo.equals("Deportivo")){
         tipojuego=dp.getTipodeporte();
-            System.out.println("tipo de deporte: "+tipojuego);
+        capacidad=20000;
         equipo1=dp.getEquipo1();
         equipo2=dp.getEquipo2();
+        }else if(modo.equals("Religioso")){
+        capacidad=30000;
         }
                 
-         double monto=0;
+         //double monto=0;
         //puente.agregarevent();
         //if(modo.equals("Deportivo")||modo.equals("Musical")&& !equipo1.equals("Ninguno")&& !equipo2.equals("Ninguno")&& !tipojuego.equals("Ninguno")||!tipomusic.equals("Ninguno")){
             
         
-        
-        
-            
-        
-        
+        if(capacidad>Cantpersonas){    
+            if(monto>0){  
         if(!modo.equals("nulo")){
         if(!code.equals("") && !tipoevent.equals("") && !nombreevento.equals("") && !Descripcion.equals("") && Cantpersonas!=0 && !fecha.equals("")){
         
         if(puente.buscarevent(code)==false){
+            
+            
+        if(modo.equals("Musical")){
+            double seguro= monto*precio.getSeguro_grama();
+            monto+=seguro;
+        }else if(modo.equals("Religioso")){
+            monto+=precio.getGrama();
+        }   
+            
+            
+            
+            
         puente.agregarevent(nombreevento,fecha,code,Cantpersonas,Descripcion,tipoevent,monto,tipomusic,tipojuego,userloging,equipo1,equipo2);
         JOptionPane.showMessageDialog(null, "Evento creado a la "+fechafinal);
         puente.mostrarevent();
@@ -277,9 +308,20 @@ System.out.println("porno");
         }
         
         }else{
-                    JOptionPane.showMessageDialog(null, "No guardo los cambios");
+            JOptionPane.showMessageDialog(null, "No guardo los cambios");
         }
+        }else{
+            JOptionPane.showMessageDialog(null, "No agrego monto o agrego un monto negativo");
         }
+        }else{
+            JOptionPane.showMessageDialog(null, "El estadio no soporta dicha cantidad");
+        }
+        
+        
+        
+        }
+        
+        
     }//GEN-LAST:event_guardar_avanceActionPerformed
 
     private void Todo_listoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Todo_listoActionPerformed
@@ -336,6 +378,7 @@ System.out.println("porno");
     private javax.swing.JButton guardar_avance;
     private javax.swing.JComboBox<String> hora;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -347,6 +390,7 @@ System.out.println("porno");
     private javax.swing.JScrollPane jScrollPane1;
     private java.awt.Label label1;
     private javax.swing.JComboBox<String> minuto;
+    private javax.swing.JTextField montoaco;
     private javax.swing.JTextField nombreevent;
     private java.awt.Panel panel1;
     // End of variables declaration//GEN-END:variables

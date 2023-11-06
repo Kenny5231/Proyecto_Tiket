@@ -9,7 +9,7 @@ package proyecto_eventos_kenny_menjivar;
  *
  * @author Kenny
  */
-class AlmacenUsuarios {
+public abstract class AlmacenUsuarios {
     
     private String Informacioneventuser="";
     private String nombreCompleto;
@@ -365,6 +365,7 @@ class AlmacenUsuarios {
         System.out.println("no entre");
     return info;
     }
+    
     public String info(){
     return event.toString(true);
     }
@@ -400,4 +401,52 @@ class AlmacenUsuarios {
         System.out.println("Estoy en almacen: fecha1: "+fecha1+" fecha2: "+fecha2);
     return info.encontrarfecha(fecha1,fecha2);
     }
+    
+    public  String getUssercreateevent(String code) {
+        for (Eventos event : listaEventos) {
+            if (event.getCode().equals(code)) {
+                return event.getUsercreate();
+            }
+        }
+        return null;
+    }
+    public String getfecha(String code){
+    for (Eventos event : listaEventos) {
+            if (event.getCode().equals(code)) {
+                return event.getFechaevento();
+            }
+        }
+        return null;
+    }
+    public double getmulta(String code){
+    for (Eventos event : listaEventos) {
+            if (event.getCode().equals(code)) {
+                return event.getMonto();
+            }
+        }
+        return 0;
+    }
+    public void enviomultaevent(String code,double multa){
+        for (Eventos event : listaEventos) {
+            if (event.getCode().equals(code)) {
+                event.setMulta(multa);
+            }
+        }
+    }
+    public String sendtipouser(String code){
+        for (Eventos event : listaEventos) {
+            if (event.getCode().equals(code)) {
+                return event.getTipevento();
+            }
+        }
+        return null;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
 }

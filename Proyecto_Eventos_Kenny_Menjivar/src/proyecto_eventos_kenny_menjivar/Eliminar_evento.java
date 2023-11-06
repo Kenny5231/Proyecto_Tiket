@@ -13,6 +13,8 @@ import javax.swing.JOptionPane;
 public class Eliminar_evento extends javax.swing.JFrame {
     Administrador_eventos event;
     Puente puente;
+    Eventos_Alma funcion;
+    preciosfinal fin;
     /**
      * Creates new form Eliminar_evento
      */
@@ -31,7 +33,7 @@ public class Eliminar_evento extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        Eliminar = new javax.swing.JButton();
         back = new javax.swing.JButton();
         code = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -46,13 +48,13 @@ public class Eliminar_evento extends javax.swing.JFrame {
         jLabel2.setText("Ingrese el codigo que desea eliminar:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, -1, -1));
 
-        jButton1.setText("Eliminar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        Eliminar.setText("Eliminar");
+        Eliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                EliminarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 410, -1, -1));
+        getContentPane().add(Eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 410, -1, -1));
 
         back.setText("Regresar");
         back.addActionListener(new java.awt.event.ActionListener() {
@@ -67,7 +69,7 @@ public class Eliminar_evento extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarActionPerformed
         // TODO add your handling code here:
         String username ="name";
         String password ="pasword";
@@ -76,19 +78,38 @@ public class Eliminar_evento extends javax.swing.JFrame {
         int age = 87;
         String userType = "Admin";
         puente = new Puente(username, password, name, age, userType);
-        
+        funcion =new Eventos_Alma(username, password, name, age, userType);
+        fin = new preciosfinal(username, password, name, age, userType);
         
         String codigo=code.getText();
         if(puente.buscarevent(codigo)){
+        String fecha=puente.agarrarfecha(codigo);
+            System.out.println("FECHAAAA: "+fecha);
+           if(puente.getUserloggin().equals(puente.createevent(codigo))){
+               
+           if(funcion.diasiguiente(fecha)&& !puente.sendtpuser(codigo).equals("Religioso")){
+                        double monto=puente.enviomonto(codigo);
+                        double multa=monto*fin.getIdemnizacion();
+                        puente.sendmunta(codigo, multa);
+                       JOptionPane.showMessageDialog(null, "Se le a cobrado: "+multa+"Lps. por indemnización");
+           }else{
+            JOptionPane.showMessageDialog(null, "No se a cobrado indemnización");
+           }
         puente.eliminarEvent(codigo);
             JOptionPane.showMessageDialog(null, "Se ha elimano el Evento con el codigo: "+codigo);
         event = new Administrador_eventos();
         event.setVisible(true);
         this.dispose();
+        
+        
+           }else{
+           JOptionPane.showMessageDialog(null, "No puedes relizar esta accion, No eres el creador del evento");
+           }
+        
         }else{
                     JOptionPane.showMessageDialog(null, "Ha ingresado un codigo inexistente");
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_EliminarActionPerformed
 
     private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
         // TODO add your handling code here:
@@ -133,9 +154,9 @@ public class Eliminar_evento extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Eliminar;
     private javax.swing.JButton back;
     private javax.swing.JTextField code;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

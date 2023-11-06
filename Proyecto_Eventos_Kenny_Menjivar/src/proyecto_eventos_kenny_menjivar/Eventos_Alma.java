@@ -7,6 +7,7 @@ package proyecto_eventos_kenny_menjivar;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
@@ -207,6 +208,48 @@ public String eventospasados() {
 
     return info;
 }
+
+    public boolean diasiguiente(String fecha) {
+    // Formato de fecha
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+
+    try {
+        // Parsea la fecha proporcionada
+        Date fechaProporcionada = sdf.parse(fecha);
+
+        // Obtiene la fecha actual
+        Date fechaActual = new Date();
+
+        // Crea un objeto Calendar para la fecha actual
+        Calendar calFechaActual = Calendar.getInstance();
+        calFechaActual.setTime(fechaActual);
+
+        // Crea un objeto Calendar para la fecha proporcionada
+        Calendar calFechaProporcionada = Calendar.getInstance();
+        calFechaProporcionada.setTime(fechaProporcionada);
+
+        // Suma un día a la fecha actual
+        calFechaActual.add(Calendar.DAY_OF_MONTH, 1);
+
+        // Compara si la fecha actual es igual a la fecha proporcionada un día después
+        if (calFechaActual.get(Calendar.YEAR) == calFechaProporcionada.get(Calendar.YEAR) &&
+            calFechaActual.get(Calendar.MONTH) == calFechaProporcionada.get(Calendar.MONTH) &&
+            calFechaActual.get(Calendar.DAY_OF_MONTH) == calFechaProporcionada.get(Calendar.DAY_OF_MONTH)) {
+            // La fecha proporcionada es un día después de la fecha actual.
+            return true;
+        } else {
+            // La fecha proporcionada no es un día después.
+            return false;
+        }
+    } catch (Exception e) {
+        // Manejo de errores si el formato de fecha proporcionado es incorrecto
+        System.err.println("Error al analizar la fecha: " + e.getMessage());
+        return false;
+    }
+}
+
+    
+
 
 
     

@@ -23,8 +23,7 @@ Editar_evento edit;
      * Creates new form Edit_panel
      */
     public Edit_panel() {
-        in = new Deportes_panel();
-        mu = new Panel_musical();
+            
         initComponents();
     }
 
@@ -52,11 +51,11 @@ Editar_evento edit;
         hora = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
         minuto = new javax.swing.JComboBox<>();
-        Pane = new javax.swing.JPanel();
         refrescar = new javax.swing.JButton();
         Guardar = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         newCode = new javax.swing.JTextField();
+        Pane = new java.awt.Panel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -111,19 +110,6 @@ Editar_evento edit;
         minuto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "59" }));
         add(minuto, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 330, 70, -1));
 
-        javax.swing.GroupLayout PaneLayout = new javax.swing.GroupLayout(Pane);
-        Pane.setLayout(PaneLayout);
-        PaneLayout.setHorizontalGroup(
-            PaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        PaneLayout.setVerticalGroup(
-            PaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        add(Pane, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 60, 350, -1));
-
         refrescar.setText("Refrescar");
         refrescar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -144,32 +130,41 @@ Editar_evento edit;
         jLabel5.setText("Nuevo Codigo");
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
         add(newCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 140, -1));
+
+        javax.swing.GroupLayout PaneLayout = new javax.swing.GroupLayout(Pane);
+        Pane.setLayout(PaneLayout);
+        PaneLayout.setHorizontalGroup(
+            PaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+        PaneLayout.setVerticalGroup(
+            PaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 250, Short.MAX_VALUE)
+        );
+
+        add(Pane, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 50, 300, 250));
     }// </editor-fold>//GEN-END:initComponents
 
     private void refrescarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refrescarActionPerformed
         // TODO add your handling code here:
         //Deportivo, Religioso, Musical
-        String evento=tipoevent.getSelectedItem().toString();
-        
+        in = new Deportes_panel();
+        mu = new Panel_musical();
+        String evento = tipoevent.getSelectedItem().toString();
+        System.out.println("EL EVENTO ES: " + evento);
 
-        
-        if(evento.equals("Deportivo")){
-            
-            //in = new Deportesedit_panel();
-            in.setSize(300,250);
-            in.setLocation(0,0);
-            Pane.removeAll();
-            Pane.add(in,BorderLayout.CENTER);
-            Pane.revalidate();
-            Pane.repaint(); 
-        }else if(evento.equals("Musical")){
-        
-            mu.setSize(300,250);
-            mu.setLocation(0,0);
-            Pane.removeAll();
-            Pane.add(mu,BorderLayout.CENTER);
-            Pane.revalidate();
-            Pane.repaint(); 
+        if (evento.equals("Deportivo")) {
+        in.setSize(300, 250);
+        in.setLocation(0, 0);
+        Pane.removeAll();
+        Pane.add(in, BorderLayout.CENTER);
+        } else if (evento.equals("Musical")) {
+        mu.setSize(300, 250);
+        mu.setLocation(0, 0);
+        Pane.removeAll();
+        Pane.add(mu, BorderLayout.CENTER);
+        }else{
+        Pane.removeAll();
         }
     }//GEN-LAST:event_refrescarActionPerformed
 
@@ -234,7 +229,7 @@ Editar_evento edit;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Guardar;
-    private javax.swing.JPanel Pane;
+    private java.awt.Panel Pane;
     private com.toedter.calendar.JDateChooser calendar;
     private javax.swing.JTextField cantpersonas;
     private javax.swing.JTextArea descripcion;

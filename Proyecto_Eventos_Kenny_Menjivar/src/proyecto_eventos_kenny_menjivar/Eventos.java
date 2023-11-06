@@ -34,7 +34,6 @@ public class Eventos {
     static ArrayList<Equipo2> equi2 = new ArrayList<Equipo2>();
     static ArrayList<Musical> musical = new ArrayList<Musical>();
     public Eventos(String nombreevento, String fecha, String code, int cantidadper, String descripcion, String tipoevento,double monto,String tipomusica,String tipodeporte,String Userloggin,String equipo1,String equipo2){
-        System.out.println("Llegamos a crear");
     this.nombre= nombreevento;
     this.fechaevento= fecha;
     this.code= code;
@@ -78,6 +77,7 @@ public class Eventos {
     String jugador = JOptionPane.showInputDialog("Ingrese el nombre de jugardor numero: "+i);
     equi1.add(new Equipo1(jugador));
     }
+    //para agregar el segundo equipo
     for(int i=0;i<jugadores2;i++){
         if(mostrar2){
              JOptionPane.showMessageDialog(null, "Ingrese el nombre de los jugadores del segundo equipo");    
@@ -86,9 +86,19 @@ public class Eventos {
     String jugador2 = JOptionPane.showInputDialog("Ingrese el nombre de jugardor numero: "+i);
     equi2.add(new Equipo2(jugador2));
     }
+    
+        System.out.println("Se han agregado todos los jugadores");
+        System.out.println("Primer equipo: ");
+        for (Equipo1 a : equi1) {
+            System.out.println(a.toString() + " jugador1");
+        }
+        System.out.println("Segundo equipo: ");
+        for (Equipo2 e : equi2) {
+            System.out.println(e.toString() + " jugador2");
+        }
+        
     }
-    
-    
+
     public String getNombre() {
         return nombre;
     }
@@ -148,7 +158,8 @@ public class Eventos {
 //    public void setFechacreate(String fechacreate) {
 //        this.fechacreate = fechacreate;
 //    }
-    public void setMulta(double multa) {    
+    public void setMulta(double multa) {  
+        System.out.println("multa llego es de: "+multa);
         this.multa = multa;
     }
 
@@ -197,23 +208,44 @@ public class Eventos {
     @Override
     
     public String toString() {
-        String info= "Evento{\n" +
-        "Username='"+nombre+"',\n" +
-        "Estado evento= '"+getEstado()+"',\n" +        
-        "codigo='"+code+"',\n" +
-        "fecha evento='"+fechaevento+"',\n" +
-        "descripcion='"+Descripcion+"',\n" +
-        "cantidad personas='"+cantpersonas+"',\n" +
-        "Usuario que lo creo='"+Usercreate+"',\n" +
-        "tipo de evento='"+tipevento+"',\n";
-        if(tipevento.equals("Musical")){
-            info+= "tipo de musica='"+tipomusica+"}";
-        }else if (tipevento.equals("Deportivo")){
-            info+="tipo de deporte='"+tipodeporte+"}\n\n";
+    StringBuilder info = new StringBuilder("Evento{\n");
+    info.append("Username='").append(nombre).append("',\n");
+    info.append("Estado evento= '").append(getEstado()).append("',\n");
+    info.append("codigo='").append(code).append("',\n");
+    info.append("fecha evento='").append(fechaevento).append("',\n");
+    info.append("descripcion='").append(Descripcion).append("',\n");
+    info.append("cantidad personas='").append(cantpersonas).append("',\n");
+    info.append("Usuario que lo creo='").append(Usercreate).append("',\n");
+    info.append("tipo de evento='").append(tipevento).append("',\n");
+    info.append("Monto='").append(monto).append("',\n");
+    if (tipevento.equals("Musical")) {
+        info.append("tipo de musica='").append(tipomusica).append("'}\n");
+        info.append("Musicos:\n");
+        for (Musical musi : musical) {
+            if (musi != null) {
+                info.append(musi.toString()).append("\n");
+            }
         }
-        return info;
-         
+    } else if (tipevento.equals("Deportivo")) {
+        info.append("tipo de deporte='").append(tipodeporte).append("'}\n\n");
+        info.append("Equipo1:\n");
+        for (Equipo1 equi : equi1) {
+            if (equi != null) {
+                info.append("Jugador: ").append(equi.toString()).append("\n");
+            }
+        }
+        info.append("Equipo2:\n");
+        for (Equipo2 equipo : equi2) {
+            if (equipo != null) {
+                info.append("Jugador: ").append(equipo.toString()).append("\n");
+            }
+        }
     }
+
+    return info.toString();
+}
+
+    
     // Getter para obtener el estado
     public Enum getEstado() {
         return estado;
