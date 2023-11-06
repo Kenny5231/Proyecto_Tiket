@@ -22,30 +22,30 @@ public class Usuario {
     private String[] arreglo = new String[150];
 
     public void agregarevet(String code) {
-        System.out.println("Se creo");
-        System.out.println("EL CODIGO QUE LLEGA ES: " + code);
         listaeventoscreadosuser.add(new Creados(code));
-        for (Creados l : listaeventoscreadosuser) {
-            System.out.println(l.toString() + " fuap-creo");
-        }
+    }
+    public void cambio(String code,String newcode){
+    for(Creados crea:listaeventoscreadosuser){
+           if(crea.getCode().equals(code)){
+           crea.setCode(newcode);
+           }
+    }
     }
 
     public String[] eventocreados() {
-        for (Creados l : listaeventoscreadosuser) {
-            System.out.println(l.toString() + " pinga");
-        }
+    int tamaño = listaeventoscreadosuser.size();
+    arreglo = new String[tamaño];
+    eventocreadossoporte(0);
+    return arreglo;
+}
 
-        int tamaño = listaeventoscreadosuser.size();
-        arreglo = new String[tamaño];
-
-        for (int i = 0; i < tamaño; i++) {
-            Creados event = listaeventoscreadosuser.get(i);
-            arreglo[i] = event.toString();
-            System.out.println(arreglo[i] + " pinga");
-        }
-        return arreglo;
+private void eventocreadossoporte(int index) {
+    if (index < listaeventoscreadosuser.size()) {
+        Creados event = listaeventoscreadosuser.get(index);
+        arreglo[index] = event.toString();
+        eventocreadossoporte(index + 1);
     }
-    
+}
     
     public Usuario(String nombreCompleto, String username, String contraseña, int edad, String tipoUsuario) {
         this.nombreCompleto = nombreCompleto;

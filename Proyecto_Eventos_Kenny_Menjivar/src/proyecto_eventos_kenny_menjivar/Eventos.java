@@ -30,6 +30,8 @@ public class Eventos {
     private String tipomusica;
     private String equipo1;
     private String equipo2;
+    private static String jugador1a;
+    private static String jugador2a;
     static ArrayList<Equipo1> equi1 = new ArrayList<Equipo1>();
     static ArrayList<Equipo2> equi2 = new ArrayList<Equipo2>();
     static ArrayList<Musical> musical = new ArrayList<Musical>();
@@ -47,20 +49,6 @@ public class Eventos {
     this.equipo1=equipo1;
     this.equipo2=equipo2;
     }
-    
-    public void Agregarmusic(){
-     String Smusicoscan = JOptionPane.showInputDialog("Ingrese la cantidad de personas que conforman el equipo:");
-     int musicoscan=Integer.parseInt(Smusicoscan);  
-        for(int i=0;i<musicoscan;i++){
-                String musico = JOptionPane.showInputDialog("Ingrese el nombre del musico numero: "+i);
-                String Intrumento = JOptionPane.showInputDialog("Ingrese el nombre del Intrumento numero: "+i);
-            musical.add(new Musical(musico,Intrumento));
-        }
-        for (Musical a : musical) {
-            System.out.println(a.toString() + " miembro");
-        }
-    }
-    
     public void AgregarPlayer(){
     String Sjugadores1 = JOptionPane.showInputDialog("Ingrese la cantidad de jugadores del Equipo 1");
     String Sjugadores2 = JOptionPane.showInputDialog("Ingrese la cantidad de jugadores del Equipo 2");
@@ -74,8 +62,9 @@ public class Eventos {
     JOptionPane.showMessageDialog(null, "Ingrese el nombre de los jugadores del primer equipo");
         mostrar1=false;
         }    
-    String jugador = JOptionPane.showInputDialog("Ingrese el nombre de jugardor numero: "+i);
-    equi1.add(new Equipo1(jugador));
+     jugador1a = JOptionPane.showInputDialog("Ingrese el nombre de jugardor numero: "+i);
+        System.out.println("1.Jugador "+i+": "+jugador1a);
+    equi1.add(new Equipo1(jugador1a));
     }
     //para agregar el segundo equipo
     for(int i=0;i<jugadores2;i++){
@@ -84,6 +73,7 @@ public class Eventos {
             mostrar2=false;
           }
     String jugador2 = JOptionPane.showInputDialog("Ingrese el nombre de jugardor numero: "+i);
+    System.out.println("2.Jugador "+i+": "+jugador2a);
     equi2.add(new Equipo2(jugador2));
     }
     
@@ -98,6 +88,40 @@ public class Eventos {
         }
         
     }
+    
+//    public void Agregarmusic(){
+//     String Smusicoscan = JOptionPane.showInputDialog("Ingrese la cantidad de personas que conforman el equipo:");
+//     int musicoscan=Integer.parseInt(Smusicoscan);  
+//        for(int i=0;i<musicoscan;i++){
+//                String musico = JOptionPane.showInputDialog("Ingrese el nombre del musico numero: "+i);
+//                String Intrumento = JOptionPane.showInputDialog("Ingrese el nombre del Intrumento numero: "+i);
+//            musical.add(new Musical(musico,Intrumento));
+//        }
+//        for (Musical a : musical) {
+//            System.out.println(a.toString() + " miembro");
+//        }
+//    }
+    private int musicoscan;
+     public void AgregarmusicRecursiva(int i) {
+        if (i < musicoscan) {
+            String musico = JOptionPane.showInputDialog("Ingrese el nombre del músico número: " + i);
+            String instrumento = JOptionPane.showInputDialog("Ingrese el nombre del instrumento número: " + i);
+            musical.add(new Musical(musico, instrumento));
+            AgregarmusicRecursiva(i + 1);
+        }
+    }
+    public void Agregarmusic() {
+        String Smusicoscan = JOptionPane.showInputDialog("Ingrese la cantidad de personas que conforman el equipo:");
+        musicoscan = Integer.parseInt(Smusicoscan);
+
+        AgregarmusicRecursiva(0);
+
+        for (Musical a : musical) {
+            System.out.println(a.toString() + " miembro");
+        }
+    }
+    
+    
 
     public String getNombre() {
         return nombre;
@@ -204,9 +228,8 @@ public class Eventos {
         return "CODIGO: "+code +"– TIPO: "+tipevento+" - TITULO: "+ nombre+"– FECHA: "+fechaevento+" – MONTO: "+monto+"\n";
     }
     public String toString(String t){
-    return "ID: "+code +" – TIPO: "+tipevento+" – TITULO: "+nombre +" – ESTADO: "+estado+" - MONTO: "+monto;
+    return "ID: "+code +" – TIPO: "+tipevento+" – TITULO: "+nombre +" – ESTADO: "+estado+" - MONTO: "+monto+"\n";
     }
-    
     @Override
     
     public String toString() {

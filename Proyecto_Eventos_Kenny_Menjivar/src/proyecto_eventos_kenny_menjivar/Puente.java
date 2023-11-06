@@ -268,5 +268,7 @@ class Puente extends AlmacenUsuarios {
     public String sendverperfil(String code){
     return super.sentinfo(code);
     }
-    
+    public void cambio(String user, String code,String newcode){
+    super.cambioevent(user, code, newcode);
+    }
 }

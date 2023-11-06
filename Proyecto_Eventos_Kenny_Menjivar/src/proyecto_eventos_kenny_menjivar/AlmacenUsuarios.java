@@ -433,6 +433,7 @@ public abstract class AlmacenUsuarios {
             }
         }
     }
+    
     public String sendtipouser(String code){
         for (Eventos event : listaEventos) {
             if (event.getCode().equals(code)) {
@@ -469,7 +470,13 @@ public abstract class AlmacenUsuarios {
         }
         return null;
     }
-    
+    public void cambioevent(String user,String code,String newcode){
+     for(Usuario usu:listaUsuarios){
+       if(usu.getUsername().equals(user)){
+           usu.cambio(code, newcode);
+       }
+     }
+    }
     
     
     

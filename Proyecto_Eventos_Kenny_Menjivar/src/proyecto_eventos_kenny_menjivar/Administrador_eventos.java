@@ -4,6 +4,8 @@
  */
 package proyecto_eventos_kenny_menjivar;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Kenny
@@ -14,6 +16,7 @@ public class Administrador_eventos extends javax.swing.JFrame {
     Eliminar_evento delete;
     Ver_evento ver;
     Editar_evento op;
+    Puente puente;
     /**
      * Creates new form Administrador_eventos
      */
@@ -94,9 +97,19 @@ public class Administrador_eventos extends javax.swing.JFrame {
 
     private void Crear_eventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Crear_eventoActionPerformed
         // TODO add your handling code here:
+        String name=" ";
+        String user="";
+        String pasword="";
+        String tipouser="";
+        int Edad=0;
+        puente= new Puente(name, user, pasword, Edad,tipouser);
+        if(puente.getTipouserlogin().equals("Administrador")||puente.getTipouserlogin().equals("Contenidos")){
         event = new Crear_evento();
         event.setVisible(true);
         this.dispose();
+        }else{
+            JOptionPane.showMessageDialog(null, "Dicha accion esta bloqueada por el tipo de usuario");
+        }
     }//GEN-LAST:event_Crear_eventoActionPerformed
 
     private void RegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegresarActionPerformed
@@ -122,9 +135,19 @@ public class Administrador_eventos extends javax.swing.JFrame {
 
     private void EditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarActionPerformed
         // TODO add your handling code here:
+        String name=" ";
+        String user="";
+        String pasword="";
+        String tipouser="";
+        int Edad=0;
+        puente= new Puente(name, user, pasword, Edad,tipouser);
+        if(puente.getTipouserlogin().equals("Administrador")||puente.getTipouserlogin().equals("Contenidos")){
         op= new Editar_evento();
         op.setVisible(true);
         this.dispose();
+        }else{
+            JOptionPane.showMessageDialog(null, "Dicha accion esta bloqueada por el tipo de usuario");
+        }
     }//GEN-LAST:event_EditarActionPerformed
 
     /**

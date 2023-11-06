@@ -9,19 +9,20 @@ package proyecto_eventos_kenny_menjivar;
  * @author Kenny
  */
 public class Equipo2 {
-    private static String nombrejugador;
+    private  String nombrejugador;
     
     public Equipo2(String jugador){
     nombrejugador=jugador;
     }
 
-    public static String getNombrejugador() {
+    public String getNombrejugador() {
         return nombrejugador;
     }
 
-    public static void setNombrejugador(String nombrejugador) {
-        Equipo2.nombrejugador = nombrejugador;
+    public void setNombrejugador(String nombrejugador) {
+        this.nombrejugador = nombrejugador;
     }
+    
     @Override
     public String toString(){
     return "Nombre: "+nombrejugador;

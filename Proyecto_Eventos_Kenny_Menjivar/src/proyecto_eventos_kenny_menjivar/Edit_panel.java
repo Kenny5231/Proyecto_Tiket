@@ -101,6 +101,11 @@ Editar_evento edit;
         add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 310, 52, -1));
 
         hora.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23" }));
+        hora.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                horaActionPerformed(evt);
+            }
+        });
         add(hora, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 330, 50, -1));
 
         jLabel9.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
@@ -198,8 +203,8 @@ Editar_evento edit;
         String Minuto = minuto.getSelectedItem().toString();
         if (selectedDate != null) {
          SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd");
-          fecha = f.format(selectedDate) + " " +Hora+" "+Minuto;
-            fechafinal="Fecha: "+f.format(selectedDate)+" Hora: "+Hora+" Minuto: "+Minuto;
+          fecha = f.format(selectedDate);
+            fechafinal=f.format(selectedDate)+" "+Hora+":"+Minuto;
          System.out.println("fecha: " + fecha);
          } else {
             fecha="";
@@ -212,7 +217,9 @@ Editar_evento edit;
         puente.agregarmusic(code);
         }
         if(true){
+            String usercreate=puente.createevent(code);
         puente.editevent(name, fechafinal, code, newcode, canpersonas, Descripcion, tipoevento, 0, tipomusic, tipodepo, Userloging, equipo1, equipo2);
+        puente.cambio(usercreate, code, newcode);
         puente.mostrarlistaeventos();
                     JOptionPane.showMessageDialog(null, "Se han hecho exitosamente los cambios");
         }else{
@@ -225,6 +232,10 @@ Editar_evento edit;
     private void tipoeventActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoeventActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tipoeventActionPerformed
+
+    private void horaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_horaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_horaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

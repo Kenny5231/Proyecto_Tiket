@@ -4,6 +4,8 @@
  */
 package proyecto_eventos_kenny_menjivar;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Kenny
@@ -17,6 +19,7 @@ public class Menu_Principal_main extends javax.swing.JFrame {
     Adminitrador_user reportes; 
     Reportes au;
     Iniciar_Sesion sesion;
+    Puente puente;
             
             
             
@@ -97,9 +100,19 @@ public class Menu_Principal_main extends javax.swing.JFrame {
 
     private void ReportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReportesActionPerformed
         // TODO add your handling code here:
+        String name=" ";
+        String user="";
+        String pasword="";
+        String tipouser="";
+        int Edad=0;
+        puente= new Puente(name, user, pasword, Edad,tipouser);
+        if(puente.getTipouserlogin().equals("Administrador")){
          reportes = new Adminitrador_user();
          reportes.setVisible(true);
          this.dispose();
+        }else{
+            JOptionPane.showMessageDialog(null, "Dicha accion esta bloqueada por el tipo de usuario");
+        }
     }//GEN-LAST:event_ReportesActionPerformed
 
     private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
