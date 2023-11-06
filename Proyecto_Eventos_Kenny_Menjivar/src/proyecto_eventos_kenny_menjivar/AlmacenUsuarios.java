@@ -32,11 +32,6 @@ public abstract class AlmacenUsuarios {
     Puente puente;
     
     
-    
-    
-    
-    
-    
     public void cambiarInformacion(String username, String newUsername, String newNombreCompleto, int newEdad, String newTipoUsuario,String newpassword) {
         Usuario usuario = buscarUsuarioPorUsername(listaUsuarios, username);
         if (usuario != null) {

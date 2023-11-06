@@ -106,7 +106,6 @@ public class Eventos_Alma extends AlmacenUsuarios {
             }
 
             if (fechaEvento.after(fechaInicial) && fechaEvento.before(fechaFinal)) {
-                System.out.println("Evento dentro del rango: " + event.getCode());
                 info += event.toString(true);
                 if (event.getTipevento().equals("Deportivo")) {
                     deportivo++;
@@ -125,8 +124,8 @@ public class Eventos_Alma extends AlmacenUsuarios {
         double total = montmusical + mondepo + monreli;
         info += "*****Eventos dentro del rango de fechas*****\n"
                 + deportivo + " Fueron deportivos.\n" + religioso + " Fueron religiosos.\n" + musical + " Fueron musicales.\n"
-                + "*****Montos*****\n" + mondepo + " es el monto del tipo deportivo.\n" + montmusical + " es el monto del tipo musical.\n"
-                + monreli + " es el monto del tipo religioso.\n" + "Total generado: " + total;
+                + "*****Montos*****\n" + mondepo +" Lps."+ " es el monto del tipo deportivo.\n" + montmusical +" Lps."+ " es el monto del tipo musical.\n"
+                + monreli +" Lps."+" es el monto del tipo religioso.\n" + "Total generado: " + total+"Lps";
     } catch (ParseException e) {
         e.printStackTrace();
         return "Error al analizar las fechas.";
@@ -197,8 +196,8 @@ public String eventospasados() {
     totalevent = deportivo + musical + religioso;
     double total = montmusical + mondepo + monreli;
     info += "*****Eventos que fueron deportivos*****\n" + deportivo + " Fueron deportivos.\n" + religioso
-            + " Fueron religiosos.\n" + musical + " Fueron musical.\n *****Monto*****\n" + mondepo
-            + " es el monto del tipo deportivo.\n" + montmusical + " es el monto del tipo musical.\n" + monreli
+            + " Fueron religiosos.\n" + musical + " Fueron musical.\n *****Monto*****\n" + mondepo+" Lps"
+            + " es el monto del tipo deportivo.\n" + montmusical +" Lps"+ " es el monto del tipo musical.\n" + monreli+" Lps"
             + " es el monto del tipo\n" + "Total generado: " + total;
 
     return info;

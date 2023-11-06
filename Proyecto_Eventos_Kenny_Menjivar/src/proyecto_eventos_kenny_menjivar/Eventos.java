@@ -184,13 +184,13 @@ public class Eventos {
         this.tipomusica = tipomusica;
     }
     public String toString(int n){
-      return"CODIGO: "+code +"– TIPO: "+tipevento+" - TITULO: "+ nombre+"– FECHA: "+fechaevento+" – Multa: "+multa+"\n";
+      return"CODIGO: "+code +"– TIPO: "+tipevento+" - TITULO: "+ nombre+"– FECHA: "+fechaevento+" – Multa: "+multa+"Lps.\n";
     }
     public String toString(boolean lt){
-        return "CODIGO: "+code +"– TIPO: "+tipevento+" - TITULO: "+ nombre+"– FECHA: "+fechaevento+" – MONTO: "+monto+"\n";
+        return "CODIGO: "+code +"– TIPO: "+tipevento+" - TITULO: "+ nombre+"– FECHA: "+fechaevento+" – MONTO: "+monto+"Lps.\n";
     }
     public String toString(String t){
-    return "ID: "+code +" – TIPO: "+tipevento+" – TITULO: "+nombre +" – ESTADO: "+estado+" - MONTO: "+monto+"\n";
+    return "ID: "+code +" – TIPO: "+tipevento+" – TITULO: "+nombre +" – ESTADO: "+estado+" - MONTO: "+monto+"Lps.\n";
     }
     @Override
     
@@ -204,7 +204,9 @@ public class Eventos {
     info.append("cantidad personas='").append(cantpersonas).append("',\n");
     info.append("Usuario que lo creo='").append(Usercreate).append("',\n");
     info.append("tipo de evento='").append(tipevento).append("',\n");
-    info.append("Monto='").append(monto).append("',\n");
+    info.append("Monto='").append(monto).append("'Lps,\n");
+    info.append("Equipo1='").append(equipo1).append("',\n");
+    info.append("Equipo2='").append(equipo2).append("',\n");
     if (tipevento.equals("Musical")) {
         info.append("tipo de musica='").append(tipomusica).append("'}\n");
         info.append("Musicos:\n");
