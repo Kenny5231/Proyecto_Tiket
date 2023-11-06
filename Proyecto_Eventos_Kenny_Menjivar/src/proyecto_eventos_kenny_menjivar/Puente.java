@@ -265,5 +265,8 @@ class Puente extends AlmacenUsuarios {
     public String sendtpuser(String code){
     return super.sendtipouser(code);
     }
+    public String sendverperfil(String code){
+    return super.sentinfo(code);
+    }
     
 }

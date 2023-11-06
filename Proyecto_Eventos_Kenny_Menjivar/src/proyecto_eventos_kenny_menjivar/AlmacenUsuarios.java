@@ -442,7 +442,14 @@ public abstract class AlmacenUsuarios {
         return null;
     }
     
-    
+    public String sentinfo(String code){
+        for (Eventos event : listaEventos) {
+            if (event.getCode().equals(code)) {
+                return event.toString("bkf");
+            }
+        }
+        return null;
+    }
     
     
     

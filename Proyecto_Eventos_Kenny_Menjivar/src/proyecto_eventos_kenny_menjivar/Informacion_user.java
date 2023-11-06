@@ -30,7 +30,7 @@ public class Informacion_user extends javax.swing.JFrame {
         String age = Integer.toString(edad);
 
         //String eventcreados= puente.eventosjugador(Username);
-        String eventcreados=puente.intent(Username);
+        String eventcreados=puente.sendverperfil(Username);
         System.out.println("eventos player: "+eventcreados);
          tipouser= puente.getTipouserlogin();  
          nombrecom= puente.getNamelogin();

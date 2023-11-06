@@ -203,13 +203,15 @@ public class Eventos {
     public String toString(boolean lt){
         return "CODIGO: "+code +"– TIPO: "+tipevento+" - TITULO: "+ nombre+"– FECHA: "+fechaevento+" – MONTO: "+monto+"\n";
     }
-    
+    public String toString(String t){
+    return "ID: "+code +" – TIPO: "+tipevento+" – TITULO: "+nombre +" – ESTADO: "+estado+" - MONTO: "+monto;
+    }
     
     @Override
     
     public String toString() {
     StringBuilder info = new StringBuilder("Evento{\n");
-    info.append("Username='").append(nombre).append("',\n");
+    info.append("Nombre='").append(nombre).append("',\n");
     info.append("Estado evento= '").append(getEstado()).append("',\n");
     info.append("codigo='").append(code).append("',\n");
     info.append("fecha evento='").append(fechaevento).append("',\n");
