@@ -11,9 +11,6 @@ package proyecto_eventos_kenny_menjivar;
 public class Lista_eventos_realizados extends javax.swing.JFrame {
     Reportes au;
     Puente puente;
-    /**
-     * Creates new form Lista_eventos_realizados
-     */
     public Lista_eventos_realizados() {
         initComponents();
         String name=" ";
@@ -22,7 +19,7 @@ public class Lista_eventos_realizados extends javax.swing.JFrame {
         String tipouser="";
         int Edad=0;
         puente= new Puente(name, user, pasword, Edad,tipouser);
-        //puente.eventpasados();
+        
         
         texto.setText(puente.eventpasados());
     }

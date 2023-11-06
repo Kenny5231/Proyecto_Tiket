@@ -50,15 +50,12 @@ public class Iniciar_Sesion extends javax.swing.JFrame {
         });
         getContentPane().add(iniciar_sesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 370, -1, -1));
 
-        Usuario.setText("admin");
         Usuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 UsuarioActionPerformed(evt);
             }
         });
         getContentPane().add(Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, 150, 30));
-
-        Contra.setText("supersecreto");
         getContentPane().add(Contra, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 270, 150, 30));
 
         jLabel2.setText("Usuario:");
@@ -101,9 +98,6 @@ puente.setUserloggin(username);
     mn.setVisible(true);
     this.dispose();
 }else if (storedPassword != null && storedPassword.equals(password) && puente.BuscarUser(username)) {
-    // Usuario autenticado con éxito
-    // puente.setUsuarioLogeado(username); // Comentado por razones desconocidas
-    // puente.userlogueado(username); // Comentado por razones desconocidas
     puente.setUserloggin(username);
     puente.actualizardatos(username);
     Menu_Principal_main mn = new Menu_Principal_main();

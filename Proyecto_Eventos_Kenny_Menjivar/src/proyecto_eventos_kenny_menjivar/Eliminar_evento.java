@@ -84,7 +84,6 @@ public class Eliminar_evento extends javax.swing.JFrame {
         String codigo=code.getText();
         if(puente.buscarevent(codigo)){
         String fecha=puente.agarrarfecha(codigo);
-            System.out.println("FECHAAAA: "+fecha);
            if(puente.getUserloggin().equals(puente.createevent(codigo))){
                
            if(funcion.diasiguiente(fecha)&& !puente.sendtpuser(codigo).equals("Religioso")){

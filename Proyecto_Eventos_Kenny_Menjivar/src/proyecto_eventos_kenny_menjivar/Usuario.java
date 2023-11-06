@@ -94,14 +94,6 @@ private void eventocreadossoporte(int index) {
         this.tipoUsuario = tipoUsuario;
     }
 
-//    public String getEventoscreados() {
-//        return eventoscreados;
-//    }
-//
-//    public void setEventoscreados(String eventoscreados) {
-//        this.eventoscreados+= eventoscreados;
-//    }
-    
     
    
     

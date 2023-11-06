@@ -104,11 +104,7 @@ public class Crear_evento extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         jLabel5.setText("Nombre del evento:");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 150, -1));
-
-        Codigo.setText("21");
         getContentPane().add(Codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 130, -1));
-
-        nombreevent.setText("13");
         getContentPane().add(nombreevent, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 130, -1));
 
         jLabel6.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
@@ -125,7 +121,6 @@ public class Crear_evento extends javax.swing.JFrame {
 
         descripcion.setColumns(20);
         descripcion.setRows(5);
-        descripcion.setText("414");
         jScrollPane1.setViewportView(descripcion);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, -1, -1));
@@ -199,15 +194,10 @@ public class Crear_evento extends javax.swing.JFrame {
     try {
          double Monto = Integer.parseInt(SMonto);
          monto=Monto;
-         System.out.println("dentro de try monto: "+monto);
     } catch (NumberFormatException e) {
         monto=-100;
     }
-            System.out.println("tras que salgo de try: "+monto);
-//        antes=false;
-System.out.println("porno");
         if(modo.equals("Religioso")){
-            System.out.println("Religioso");
             
         }else if(modo.equals("Deportivo")){
             System.out.println("Deportivo");
@@ -219,7 +209,6 @@ System.out.println("porno");
             Panel.revalidate();
             Panel.repaint(); 
         }else if(modo.equals("Musical")){
-            System.out.println("Musical");
             mp = new Panel_musical();
             mp.setSize(300,250);
             mp.setLocation(0,0);
@@ -239,7 +228,6 @@ System.out.println("porno");
         int Cantpersonas = Integer.parseInt(cantpersonas.getText());
         String fechafinal="";
 
-        System.out.println("halooooo: "+Cantpersonas);
         java.util.Date selectedDate = Fecha.getDate();
         String fecha;
         String Hora = hora.getSelectedItem().toString();
@@ -248,7 +236,6 @@ System.out.println("porno");
          SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd");
           fecha = f.format(selectedDate) + " " +Hora+":"+Minuto;
             fechafinal="Fecha: "+f.format(selectedDate)+" Hora: "+Hora+" Minuto: "+Minuto;
-         System.out.println("fecha: " + fecha);
          } else {
             fecha="";
          }

@@ -15,7 +15,7 @@ public final class preciosfinal extends AlmacenUsuarios {
     int edad;
     String tipoUsuario;
     public preciosfinal(String nombreCompleto, String username, String contraseña, int edad, String tipoUsuario) {
-        super(nombreCompleto, username, contraseña, edad, tipoUsuario); // Llama al constructor de AlmacenUsuarios
+        super(nombreCompleto, username, contraseña, edad, tipoUsuario); 
         this.nombreCompleto = nombreCompleto;
         this.username = username;
         this.contraseña = contraseña;

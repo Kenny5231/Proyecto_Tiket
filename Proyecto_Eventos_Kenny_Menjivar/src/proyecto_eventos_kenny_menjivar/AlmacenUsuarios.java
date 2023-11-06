@@ -83,15 +83,10 @@ public abstract class AlmacenUsuarios {
     }
     
     public void definologing(String Usserloging){
-        System.out.println("estamos en defino");
     this.nameloging=buscarnombre(Usserloging);
-        System.out.println(nameloging);
     this.Contraloging= encontrarContraseña(Usserloging);    
-        System.out.println(Contraloging);
     this.edadloggin= buscaredad(Usserloging); 
-        System.out.println(edadloggin);
     this.tipouserloggin=buscartipouser(Usserloging);
-        System.out.println(tipouserloggin);
     }
     
     public String buscartipouser(String username){
@@ -100,7 +95,7 @@ public abstract class AlmacenUsuarios {
                 return usuario.getTipoUsuario();
             }
         }
-        return null; // Devuelve null si el usuario no se encuentra en la lista
+        return null; 
     }
     public int buscaredad(String username){
      for (Usuario usuario : listaUsuarios) {
@@ -108,7 +103,7 @@ public abstract class AlmacenUsuarios {
                 return usuario.getEdad();
             }
         }
-        return 0; // Devuelve null si el usuario no se encuentra en la lista
+        return 0; 
     }
     
     
@@ -118,7 +113,7 @@ public abstract class AlmacenUsuarios {
                 return usuario.getNombreCompleto();
             }
         }
-        return null; // Devuelve null si el usuario no se encuentra en la lista
+        return null; 
     }
     
     
@@ -134,10 +129,10 @@ public abstract class AlmacenUsuarios {
     public Usuario buscarUsuarioPorUsername(ArrayList<Usuario> listaUsuarios, String usernameBuscado) {
         for (Usuario usuario : listaUsuarios) {
             if (usuario.getUsername().equals(usernameBuscado)) {
-                return usuario; // Se encontró un usuario con el username buscado
+                return usuario; 
             }
         }
-        return null; // No se encontró un usuario con el username buscado
+        return null; 
     }
     
     public String getNombreCompleto() {
@@ -186,7 +181,6 @@ public abstract class AlmacenUsuarios {
 
     public void mostrarlista() {
         for (Usuario u : listaUsuarios) {
-            System.out.println(u + " auu");
         }
     }
 
@@ -202,11 +196,9 @@ public abstract class AlmacenUsuarios {
         for (Usuario usuario : listaUsuarios) {
             if (usuario.getUsername().equals(username)) {
                 listaUsuarios.remove(usuario);
-                System.out.println("Usuario eliminado: " + username);
                 return;
             }
         }
-        System.out.println("Usuario no encontrado: " + username);
     }
     //eventos
     public void agregarevento(String nombreevento, String fecha, String code, int cantidadper, String descripcion, String tipoevento,double monto,String tipomusica,String tipodeporte,String Userloggin,String equipo1,String equipo2) {
@@ -214,7 +206,6 @@ public abstract class AlmacenUsuarios {
     }
     public void mostrarlistaeventos() {
         for (Eventos l : listaEventos) {
-            System.out.println(l + " Yeahhh");
         }
     }
     public String mostrarinfoeventos(String code) {
@@ -250,22 +241,18 @@ public abstract class AlmacenUsuarios {
         for (Eventos event : listaEventos) {
             if (event.getCode().equals(code)) {
                 event.setEstado(Enum.Cancelado);
-                System.out.println("Estado: "+ event.getEstado());
-                System.out.println("Codigo Cancelado: " + code);
                 return;
             }
         }
-        System.out.println("Usuario no encontrado: " + code);
     }
     public  void vereventdelete(String code) {
         for (Eventos event : listaEventos) {
             if (event.getCode().equals(code)) {
                 event.setEstado(Enum.Cancelado);
-                System.out.println("Codigo Cancelado: " + code);
+              //event.setEstado()
                 return;
             }
         }
-        System.out.println("Usuario no encontrado: " + code);
     }
     
     public String vereventdelete() {
@@ -280,7 +267,11 @@ public abstract class AlmacenUsuarios {
 
     for (Eventos event : listaEventos) {
         if (event.getEstado() == Enum.Cancelado) {
+           // 
             info += event.toString(0);
+            
+            
+            
             if(event.getTipevento().equals("Deportivo")){
         deportivo++;
         mondepo=event.getMulta();
@@ -296,7 +287,7 @@ public abstract class AlmacenUsuarios {
     totalevent=deportivo+musical+religioso;
     double total=montmusical+mondepo+monreli;
     info+="*****Eventos que fueron deportivos*****\n"+deportivo+" Fueron deportivos.\n"+religioso+" Fueron religiosos.\n"+musical+" Fueron musical.\n *****Monto*****\n"+mondepo+" es el monto del tipo deportivo.\n"+montmusical+" es el monto del tipo musical.\n"+monreli+" es el monto del tipo\n"+"Total generado por indemnización: "+total;
-    System.out.println("Eventos Cancelados: " + info);
+    
     return info;
     }
 
@@ -354,15 +345,12 @@ public abstract class AlmacenUsuarios {
         }
         }
     for(int i=0;i<arreglo.length;i++){
-            System.out.println("ARREGLO:      ///"+arreglo[i]);
         }
     for(int i=0;i<arreglo.length;i++){
     if(!arreglo[i].equals("")){
-        System.out.println("Si entre");
     info+=mostrarinfoeventos(arreglo[i]);
     }
     }
-        System.out.println("no entre");
     return info;
     }
     
@@ -398,7 +386,6 @@ public abstract class AlmacenUsuarios {
         puente = new Puente(username, contraseña, nombreCompleto, edad, tipoUsuario);
         fecha1=puente.setenviofecha1();
         fecha2=puente.setenviofecha2();
-        System.out.println("Estoy en almacen: fecha1: "+fecha1+" fecha2: "+fecha2);
     return info.encontrarfecha(fecha1,fecha2);
     }
     
@@ -454,17 +441,14 @@ public abstract class AlmacenUsuarios {
         }
     for(int i=0;i<arreglo.length;i++){
     if(!arreglo[i].equals("")){
-        System.out.println("Si entre");
     info+=infoperfil(arreglo[i]);
     }
     }
-        System.out.println("no entre");
     return info;
     }
     public String infoperfil(String code) {
         for (Eventos l : listaEventos) {
             if(l.getCode().equals(code)){
-            System.out.println(l);
             return l.toString("gkj");
             }
         }

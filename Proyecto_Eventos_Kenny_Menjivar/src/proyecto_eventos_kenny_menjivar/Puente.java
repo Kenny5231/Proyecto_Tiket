@@ -70,30 +70,23 @@ class Puente extends AlmacenUsuarios {
     public void cambiarinfo(String username, String newUsername, String newNombreCompleto, int newEdad, String newTipoUsuario,String password){
     super.cambiarInformacion(username, newUsername, newNombreCompleto, newEdad, newTipoUsuario,password);
     }
-//    public String eventosjugador(String nombreUsuario){
-//    return super.evetoscreadorporplayer(nombreUsuario);
-//    }
+
     public String informacion(String user){
     String info=super.eventosCreadosPorUsuario(user);
     return info;
     }
     
     public void actualizardatos(String username){
-        System.out.println("actualizamos");
       super.definologing(username);
         // Obtener y actualizar los datos desde la superclase (pruebouser)
         
         this.passwordlogin = super.getContraloging();
-        System.out.println("comtra es:"+Password);
         
         this.namelogin = super.getNameloging();
-        System.out.println("nombre es:"+name);
         
         this.tipouserlogin = super.getTipouserloggin();
-        System.out.println("tipouser:"+tipouser);
         
         this.edadlogin = super.getEdadloggin();  
-        System.out.println("edad es:"+edad);
         
     }
 
@@ -161,7 +154,7 @@ class Puente extends AlmacenUsuarios {
         if (storedPassword != null) {
             return storedPassword;
         }
-        return "no hay"; // Cambié "no ay" a "no hay" para corregir la ortografía.
+        return "no hay"; 
     }
 
     public void crearUser(String nombreCompleto, String username, String Pasword, int edad, String Tipouser) {
@@ -189,7 +182,6 @@ class Puente extends AlmacenUsuarios {
     
     //evetos
     public void agregarevent(String nombreevento, String fecha, String code, int cantidadper, String descripcion, String tipoevento,double monto,String tipomusica,String tipodeporte,String Userloggin,String equipo1,String equipo2){
-        System.out.println("son: "+nombreevento+ fecha+ code+ cantidadper+ descripcion+ tipoevento+ monto+ tipomusica+ tipodeporte+ Userloggin);
         super.agregarevento(nombreevento, fecha, code, cantidadper, descripcion, tipoevento, monto, tipomusica, tipodeporte, Userloggin,equipo1,equipo2);
     }
     public void mostrarevent(){
@@ -235,13 +227,10 @@ class Puente extends AlmacenUsuarios {
     return fecha2;
     }
     public void getenviofecha1(String Fecha1){
-        System.out.println("Esto llega a puente de la fecha1: "+Fecha1);
     this.fecha1=Fecha1;
-        System.out.println("Eta es la fecha1 "+this.fecha1);
     }
     public void getenviofecha2(String Fecha2){
     this.fecha2=Fecha2;
-            System.out.println("Eta es la fecha2 "+this.fecha2);
 
     }
     public String sendfecha(){

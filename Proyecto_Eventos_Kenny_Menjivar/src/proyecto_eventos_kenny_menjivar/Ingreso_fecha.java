@@ -138,7 +138,6 @@ Puente puente;
     if (selectedDate != null) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         fecha1 = dateFormat.format(selectedDate);
-        System.out.println("Primera fecha: " + fecha1);
     }
 
     // Segunda fecha
@@ -147,7 +146,6 @@ Puente puente;
     if (selectedDate2 != null) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         fecha2 = dateFormat.format(selectedDate2);
-        System.out.println("Segunda fecha: " + fecha2);
     }
     if(!fecha1.equals("")&&!fecha2.equals("")){
         //agarro los minutos y horas
@@ -157,9 +155,7 @@ Puente puente;
     String minuto2=Minuto2.getSelectedItem().toString();
     //envio
     puente.getenviofecha1(fecha1+" "+Hora1+":"+Minuto1);
-        System.out.println("fecha1: send  :"+fecha1+" "+Hora1+":"+Minuto1);
     puente.getenviofecha2(fecha2+" "+Hora2+":"+minuto2);   
-    System.out.println("fecha2: send  :"+fecha2+" "+Hora2+":"+minuto2);
 
     
     

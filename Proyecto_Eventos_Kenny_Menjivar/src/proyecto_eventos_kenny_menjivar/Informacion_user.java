@@ -10,9 +10,7 @@ package proyecto_eventos_kenny_menjivar;
  */
 public class Informacion_user extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Informacion_user
-     */
+    
     Reportes back= new Reportes();
     Puente puente;
     
@@ -31,7 +29,6 @@ public class Informacion_user extends javax.swing.JFrame {
 
         //String eventcreados= puente.eventosjugador(Username);
         String eventcreados=puente.sendverperfil(Username);
-        System.out.println("eventos player: "+eventcreados);
          tipouser= puente.getTipouserlogin();  
          nombrecom= puente.getNamelogin();
         Edad.setText(age); 

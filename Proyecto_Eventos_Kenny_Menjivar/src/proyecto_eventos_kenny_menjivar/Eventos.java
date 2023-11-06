@@ -63,7 +63,6 @@ public class Eventos {
         mostrar1=false;
         }    
      jugador1a = JOptionPane.showInputDialog("Ingrese el nombre de jugardor numero: "+i);
-        System.out.println("1.Jugador "+i+": "+jugador1a);
     equi1.add(new Equipo1(jugador1a));
     }
     //para agregar el segundo equipo
@@ -73,34 +72,11 @@ public class Eventos {
             mostrar2=false;
           }
     String jugador2 = JOptionPane.showInputDialog("Ingrese el nombre de jugardor numero: "+i);
-    System.out.println("2.Jugador "+i+": "+jugador2a);
     equi2.add(new Equipo2(jugador2));
     }
     
-        System.out.println("Se han agregado todos los jugadores");
-        System.out.println("Primer equipo: ");
-        for (Equipo1 a : equi1) {
-            System.out.println(a.toString() + " jugador1");
-        }
-        System.out.println("Segundo equipo: ");
-        for (Equipo2 e : equi2) {
-            System.out.println(e.toString() + " jugador2");
-        }
-        
     }
     
-//    public void Agregarmusic(){
-//     String Smusicoscan = JOptionPane.showInputDialog("Ingrese la cantidad de personas que conforman el equipo:");
-//     int musicoscan=Integer.parseInt(Smusicoscan);  
-//        for(int i=0;i<musicoscan;i++){
-//                String musico = JOptionPane.showInputDialog("Ingrese el nombre del musico numero: "+i);
-//                String Intrumento = JOptionPane.showInputDialog("Ingrese el nombre del Intrumento numero: "+i);
-//            musical.add(new Musical(musico,Intrumento));
-//        }
-//        for (Musical a : musical) {
-//            System.out.println(a.toString() + " miembro");
-//        }
-//    }
     private int musicoscan;
      public void AgregarmusicRecursiva(int i) {
         if (i < musicoscan) {
@@ -116,9 +92,6 @@ public class Eventos {
 
         AgregarmusicRecursiva(0);
 
-        for (Musical a : musical) {
-            System.out.println(a.toString() + " miembro");
-        }
     }
     
     
@@ -175,15 +148,7 @@ public class Eventos {
         return multa;
     }
 
-//    public String getFechacreate() {
-//        return fechacreate;
-//    }
-//
-//    public void setFechacreate(String fechacreate) {
-//        this.fechacreate = fechacreate;
-//    }
     public void setMulta(double multa) {  
-        System.out.println("multa llego es de: "+multa);
         this.multa = multa;
     }
 
@@ -219,9 +184,6 @@ public class Eventos {
         this.tipomusica = tipomusica;
     }
     public String toString(int n){
-        if(getEstado().equals("Cancelado")){
-        multa=100;
-        }
       return"CODIGO: "+code +"– TIPO: "+tipevento+" - TITULO: "+ nombre+"– FECHA: "+fechaevento+" – Multa: "+multa+"\n";
     }
     public String toString(boolean lt){
@@ -271,12 +233,10 @@ public class Eventos {
 }
 
     
-    // Getter para obtener el estado
     public Enum getEstado() {
         return estado;
     }
 
-    // Setter para actualizar el estado
     public void setEstado(Enum estado) {
         this.estado = estado;
     }

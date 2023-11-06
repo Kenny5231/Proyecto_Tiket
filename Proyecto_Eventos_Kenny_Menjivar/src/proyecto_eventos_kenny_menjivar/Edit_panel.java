@@ -19,6 +19,9 @@ Deportes_panel in;
 Panel_musical mu;
 Puente puente;
 Editar_evento edit;
+preciosfinal precio;
+private static double monto=-10000;
+private static double capacidad;
     /**
      * Creates new form Edit_panel
      */
@@ -56,6 +59,8 @@ Editar_evento edit;
         jLabel5 = new javax.swing.JLabel();
         newCode = new javax.swing.JTextField();
         Pane = new java.awt.Panel();
+        jLabel6 = new javax.swing.JLabel();
+        Monto = new javax.swing.JTextField();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -148,6 +153,11 @@ Editar_evento edit;
         );
 
         add(Pane, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 50, 300, 250));
+
+        jLabel6.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        jLabel6.setText("Monto Acordado:");
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 140, -1));
+        add(Monto, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 20, 160, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void refrescarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refrescarActionPerformed
@@ -181,6 +191,7 @@ Editar_evento edit;
         String tipouser="";
         int Edad=0;
         puente= new Puente(nombre1, user, pasword, Edad,tipouser);
+        precio = new preciosfinal(nombre1, user, pasword, Edad,tipouser);
         edit =new Editar_evento();
         String name = nombre.getText();
         String newcode=newCode.getText();
@@ -216,15 +227,43 @@ Editar_evento edit;
         }else if(evento.equals("Musical")){
         puente.agregarmusic(code);
         }
+        String SMonto=Monto.getText();
+    try {
+         double Monto = Integer.parseInt(SMonto);
+         monto=Monto;
+    } catch (NumberFormatException e) {
+        monto=-100;
+    }
+    if(tipoevento.equals("Musical")){
+         capacidad=25000;
+        }else if(tipoevento.equals("Deportivo")){
+        capacidad=20000;
+        }else if(tipoevento.equals("Religioso")){
+        capacidad=30000;
+        }
+        if(capacidad>canpersonas){    
+            if(monto>0){ 
         if(true){
+            if(tipoevento.equals("Musical")){
+            double seguro= monto*precio.getSeguro_grama();
+            monto+=seguro;
+        }else if(tipoevento.equals("Religioso")){
+            monto+=precio.getGrama();
+        }   
             String usercreate=puente.createevent(code);
-        puente.editevent(name, fechafinal, code, newcode, canpersonas, Descripcion, tipoevento, 0, tipomusic, tipodepo, Userloging, equipo1, equipo2);
+        puente.editevent(name, fechafinal, code, newcode, canpersonas, Descripcion, tipoevento, monto, tipomusic, tipodepo, Userloging, equipo1, equipo2);
         puente.cambio(usercreate, code, newcode);
         puente.mostrarlistaeventos();
                     JOptionPane.showMessageDialog(null, "Se han hecho exitosamente los cambios");
         }else{
                     JOptionPane.showMessageDialog(null, "No ha hecho los cambios necesarios");
 
+        }
+       }else{
+            JOptionPane.showMessageDialog(null, "No agrego monto o agrego un monto negativo");
+            }
+    }else{
+        JOptionPane.showMessageDialog(null, "El estadio no soporta dicha cantidad");
         }
 
     }//GEN-LAST:event_GuardarActionPerformed
@@ -240,6 +279,7 @@ Editar_evento edit;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Guardar;
+    private javax.swing.JTextField Monto;
     private java.awt.Panel Pane;
     private com.toedter.calendar.JDateChooser calendar;
     private javax.swing.JTextField cantpersonas;
@@ -250,6 +290,7 @@ Editar_evento edit;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;

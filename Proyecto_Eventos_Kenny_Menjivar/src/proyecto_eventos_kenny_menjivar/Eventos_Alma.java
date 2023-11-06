@@ -43,7 +43,7 @@ public class Eventos_Alma extends AlmacenUsuarios {
         int totalevent=0;
     ArrayList<Eventos> eventosFuturos = new ArrayList<>();
     SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-    Date fechaActual = new Date();  // Obtener la fecha y hora actual
+    Date fechaActual = new Date();
 
     for (Eventos event : listaEventos) {
         Date fechaEvento = null;
@@ -106,7 +106,6 @@ public class Eventos_Alma extends AlmacenUsuarios {
             }
 
             if (fechaEvento.after(fechaInicial) && fechaEvento.before(fechaFinal)) {
-                // El evento está dentro del rango de fechas
                 System.out.println("Evento dentro del rango: " + event.getCode());
                 info += event.toString(true);
                 if (event.getTipevento().equals("Deportivo")) {
@@ -150,7 +149,7 @@ public String eventospasados() {
     int totalevent = 0;
     ArrayList<Eventos> eventosPasados = new ArrayList<>();
     SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-    Date fechaActual = new Date(); // Obtener la fecha y hora actual
+    Date fechaActual = new Date(); 
 
     for (Eventos event : listaEventos) {
         Date fechaEvento = null;
@@ -158,7 +157,7 @@ public String eventospasados() {
             fechaEvento = dateFormat.parse(event.getFechaevento());
         } catch (ParseException e) {
             e.printStackTrace();
-            continue; // Saltar este evento si la fecha no se pudo analizar correctamente
+            continue; 
         }
 
         if (fechaEvento.before(fechaActual)) {
@@ -166,27 +165,23 @@ public String eventospasados() {
         }
     }
 
-    // Crear un comparador personalizado para ordenar los eventos pasados por fecha
     Comparator<Eventos> fechaComparator = new Comparator<Eventos>() {
         @Override
         public int compare(Eventos evento1, Eventos evento2) {
             try {
                 Date fecha1 = dateFormat.parse(evento1.getFechaevento());
                 Date fecha2 = dateFormat.parse(evento2.getFechaevento());
-                return fecha2.compareTo(fecha1); // Para ordenar de más reciente a más antigua
+                return fecha2.compareTo(fecha1); 
             } catch (ParseException e) {
                 e.printStackTrace();
-                return 0; // Cambia esto según tus necesidades
+                return 0;
             }
         }
     };
 
-    // Ordenar los eventos pasados utilizando el comparador personalizado
     Collections.sort(eventosPasados, fechaComparator);
 
-    // Ahora, 'eventosPasados' contiene los eventos pasados ordenados.
     for (Eventos eventoPasado : eventosPasados) {
-        System.out.println("Evento pasado: " + eventoPasado.getCode());
         info += eventoPasado.toString(true);
         if (eventoPasado.getTipevento().equals("Deportivo")) {
             deportivo++;
@@ -210,39 +205,28 @@ public String eventospasados() {
 }
 
     public boolean diasiguiente(String fecha) {
-    // Formato de fecha
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 
     try {
-        // Parsea la fecha proporcionada
         Date fechaProporcionada = sdf.parse(fecha);
 
-        // Obtiene la fecha actual
         Date fechaActual = new Date();
 
-        // Crea un objeto Calendar para la fecha actual
         Calendar calFechaActual = Calendar.getInstance();
         calFechaActual.setTime(fechaActual);
 
-        // Crea un objeto Calendar para la fecha proporcionada
         Calendar calFechaProporcionada = Calendar.getInstance();
         calFechaProporcionada.setTime(fechaProporcionada);
-
-        // Suma un día a la fecha actual
         calFechaActual.add(Calendar.DAY_OF_MONTH, 1);
 
-        // Compara si la fecha actual es igual a la fecha proporcionada un día después
         if (calFechaActual.get(Calendar.YEAR) == calFechaProporcionada.get(Calendar.YEAR) &&
             calFechaActual.get(Calendar.MONTH) == calFechaProporcionada.get(Calendar.MONTH) &&
             calFechaActual.get(Calendar.DAY_OF_MONTH) == calFechaProporcionada.get(Calendar.DAY_OF_MONTH)) {
-            // La fecha proporcionada es un día después de la fecha actual.
             return true;
         } else {
-            // La fecha proporcionada no es un día después.
             return false;
         }
     } catch (Exception e) {
-        // Manejo de errores si el formato de fecha proporcionado es incorrecto
         System.err.println("Error al analizar la fecha: " + e.getMessage());
         return false;
     }

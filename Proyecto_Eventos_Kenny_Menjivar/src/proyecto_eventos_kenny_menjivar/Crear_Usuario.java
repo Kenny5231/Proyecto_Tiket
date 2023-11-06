@@ -139,10 +139,6 @@ public class Crear_Usuario extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "No ha llenado todos los datos");
         }
         puente.mostrarlista();
-        if (puente.BuscarUser(user)) {
-            System.out.println("si se guardo");
-        } else
-            System.out.println("no se guardo");
     }//GEN-LAST:event_Crear_PlayerActionPerformed
 
     private void edadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edadActionPerformed
